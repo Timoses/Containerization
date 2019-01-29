@@ -1,6 +1,8 @@
 
-..
-   .. contents::
+.. contents:: **Contents**
+   :backlinks: none
+
+.. sectnum:: :depth: 3
 
 =============
 Organizations
