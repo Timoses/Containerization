@@ -6,6 +6,7 @@
 
 .. contents:: **Contents**
    :backlinks: none
+   :depth: 3
 
 .. sectnum:: :depth: 3
 
