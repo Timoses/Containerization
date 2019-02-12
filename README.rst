@@ -773,9 +773,24 @@ Authentication
 * Basic Auth
 * X.509 client certs
 * bearer tokens
-* OpenID Connect
-    * [Experience Report](https://medium.com/@mrbobbytables/kubernetes-day-2-operations-authn-authz-with-oidc-and-a-little-help-from-keycloak-de4ea1bdbbe)
-    * e.g. with Keycloak (can also connect to FreeIPA)
+
+OpenIDConnect
+`````````````
+Plugins/Helpers
+~~~~~~~~~~~~~~~
+:code:`kubectl` does not itself fetch the tokens from the IdP (Identity Provider). Helper utilities can be used to automatically set up the kubectl config file:
+
+   + https://github.com/int128/kubelogin
+   + https://github.com/Nordstrom/kubelogin
+     + utilizes a backend server in the cluster to communicate with the IdP and hand back the token to the CLI tool
+   + https://github.com/negz/kuberos (unmaintained)
+
+
+Resources
+~~~~~~~~~
+
+* OIDC explained: https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1
+* `Experience Report <https://medium.com/@mrbobbytables/kubernetes-day-2-operations-authn-authz-with-oidc-and-a-little-help-from-keycloak-de4ea1bdbbe>`_
 
 Authorization
 -------------
