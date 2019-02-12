@@ -4,6 +4,14 @@
 
 .. sectnum:: :depth: 3
 
+==========
+Stay sharp
+==========
+A list of resources to stay up to date in the rapidly developing world of Kubernetes:
+* https://kubernetes.io/blog/
+* https://kubedex.com/
+* https://learnk8s.io/blog
+
 =============
 Organizations
 =============
@@ -656,6 +664,11 @@ Networking
 * No NAT (vs Docker)
 
 * Every node is assigned a CIDR block for pod IPs
+
+IP Address allocation
+---------------------
+Private IP Addresses: https://tools.ietf.org/html/rfc1918
+https://cloud.google.com/kubernetes-engine/docs/how-to/flexible-pod-cidr
 
 Pod network
 -----------
