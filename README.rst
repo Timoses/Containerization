@@ -668,7 +668,6 @@ Networking
 * all nodes can communicate with all containers (and vice-versa)
 * the IP that a container sees itself as is the same IP that others see it as
 * No NAT (vs Docker)
-
 * Every node is assigned a CIDR block for pod IPs
 
 IP Address allocation
@@ -716,6 +715,12 @@ Pod to Pod on another Node
 
 * Multus: Allows connecting multiple network interfaces to a Pod
     https://github.com/intel/multus-cni
+
+Routing
+-------
+See also `Ingress`.
+
+https://www.getambassador.io/ : Gateway
 
 
 DNS
