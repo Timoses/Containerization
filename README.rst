@@ -26,8 +26,17 @@ Organizations
 .. _OCI image spec: https://github.com/opencontainers/image-spec/
 .. _OCI runtime spec: https://github.com/opencontainers/runtime-spec/
 
-* CNCF_ [`Definition <Definition CNCF_>`_] - Cloud Native Computing Foundation
-* OCI_ [`git <OCI git_>`_] - Open Container Initiative: Specifies standards to drive interoperability of container technologies
+-----
+CNCF_
+-----
+
+[`Definition <Definition CNCF_>`_] - Cloud Native Computing Foundation
+[`Landscape <https://l.cncf.io>`_]
+
+---
+OCI
+---
+[`git <OCI git_>`_] - Open Container Initiative: Specifies standards to drive interoperability of container technologies
     * `Image specification <OCI image spec_>`_
     * `Runtime specification <OCI runtime spec_>`_
 
