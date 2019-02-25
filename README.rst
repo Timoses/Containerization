@@ -695,6 +695,11 @@ Pod to Pod on another Node
 * Manual router configuration: Update to route Pod IPs to correct Node
 * Overlay network: Create a virtual network utilizing tools like iptables
 
+IPv6
+----
+* https://github.com/leblancd/kube-v6
+* https://opsnotice.xyz/kubernetes-ipv6-only/
+
 CNI Plugins
 -----------
 CNI plugins offer various methods of establishing connectivity between pods.
