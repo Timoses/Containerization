@@ -512,9 +512,10 @@ Instead of building source code on a developer's local machine, the source code 
 ----------
 Kubernetes
 ----------
+
 `API <k8s_api_>`__
 
-Git Docs: [`Architecture <https://github.com/kubernetes/community/blob/master/contributors/design-proposals/architecture/architecture.md>`_]
+Git Docs: [`Architecture <https://github.com/kubernetes/community/blob/master/contributors/design-proposals/architecture/architecture.md>`_] [`API conventions <https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md>`_]
 
 * `Trail towards K8s <https://raw.githubusercontent.com/cncf/landscape/master/trail_map/CNCF_TrailMap_latest.png>`_
 * `Certified K8s-conform software <https://www.cncf.io/certification/software-conformance/>`_
