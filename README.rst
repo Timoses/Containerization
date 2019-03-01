@@ -395,45 +395,62 @@ Deploying new versions of software
 Management
 ----------
 
-* **Config** - Infrastructure as Code (IAC)
-    * ??? Packer, Salt(Stack) (Cloud)
-    * **Ansible** - Configure and manage inventory with playbooks (roles -> playbooks -> tasks -> modules)
-            * client-only architecture
-            * Ansible Galaxy: Hub for sharing roles
-            * only client required (runs over ssh)
-    * **Puppet** - config, deployment, ...
-        * client/server architecture *  Requires supporting infrastructure (master nodes, dbs)
-        * Periodically checks if servers/inventory are still in desired state
-        * r10k?
-    * **Terraform** - Infrastructure **orchestration**
+Infrastructure as Code (IAC)
+
+Config
+======
+
+* ??? Packer, Salt(Stack) (Cloud)
+* **Ansible** - Configure and manage inventory with playbooks (roles -> playbooks -> tasks -> modules)
         * client-only architecture
-        * manages infrastructure on **cloud provider platforms**
-        * not easily deployed on-premise
-    * **Chef**
-        * client/server architecture
-    * ? Packer.io, Saltstack, Confd
-    * https://www.upguard.com/articles/the-7-configuration-management-tools-you-need-to-know
-    * `GitOps <https://www.weave.works/blog/gitops-operations-by-pull-request>`_ (use git for continuous deployment, see also [Configuration Monitoring](#configuration-monitoring))
-        * ??? Repo Structure, 1 repo/cluster?
-            * ? How to integrate e.g. Helm?
-            * /
-                * k8s
-                    * deployments
-                    * services
-                    * ...?
-                * ansible
-                * ...
-        * `Flux <https://github.com/weaveworks/flux>`_ - automated CI/CD from git repository (app code -> image -> cluster & config 'code' -> cluster)
-            * `Example usage <https://github.com/stefanprodan/gitops-helm/blob/master/README.md>`_
-        * Self:
-            * Save PR number when changing config with kubectl: kubectl annotate, kubectl apply --record ?
-        * Use Helm?? Could use cluster architecture templates, and populate different values for different cluster instances?
-* **Service Mesh** - Monitor, manage and control services. Resiliency features, ...
-    * Read: https://thenewstack.io/which-service-mesh-should-i-use/
-    * `Istio <https://istio.io/>`_ * Adds service control plane in the form of proxy sidecar containers
-    * `Linkerd <https://linkerd.io/>`_ [CNCF_ incubated]
-        * *Conduit* joined with Linkerd
-    * `Envoy <https://www.envoyproxy.io/>`_ - Communication mesh. L7 proxy and communication bus, runs on each node.
+        * Ansible Galaxy: Hub for sharing roles
+        * only client required (runs over ssh)
+* **Puppet** - config, deployment, ...
+    * client/server architecture *  Requires supporting infrastructure (master nodes, dbs)
+    * Periodically checks if servers/inventory are still in desired state
+    * r10k?
+* **Terraform** - Infrastructure **orchestration**
+    * client-only architecture
+    * manages infrastructure on **cloud provider platforms**
+    * not easily deployed on-premise
+* **Chef**
+    * client/server architecture
+* ? Packer.io, Saltstack, Confd
+* https://www.upguard.com/articles/the-7-configuration-management-tools-you-need-to-know
+* `GitOps <https://www.weave.works/blog/gitops-operations-by-pull-request>`_ (use git for continuous deployment, see also [Configuration Monitoring](#configuration-monitoring))
+    * ??? Repo Structure, 1 repo/cluster?
+        * ? How to integrate e.g. Helm?
+        * /
+            * k8s
+                * deployments
+                * services
+                * ...?
+            * ansible
+            * ...
+    * `Flux <https://github.com/weaveworks/flux>`_ - automated CI/CD from git repository (app code -> image -> cluster & config 'code' -> cluster)
+        * `Example usage <https://github.com/stefanprodan/gitops-helm/blob/master/README.md>`_
+    * Self:
+        * Save PR number when changing config with kubectl: kubectl annotate, kubectl apply --record ?
+    * Use Helm?? Could use cluster architecture templates, and populate different values for different cluster instances?
+
+Package
+=======
+* Helm_
+
+Operator
+========
+`Operator Pattern <https://coreos.com/operators/>`_: Use Custom Resource Definitions and Controllers to establish operators within Kubernetes
+
+* https://www.operatorhub.io/
+
+Service Mesh
+============
+Monitor, manage and control services. Resiliency features, ...
+* Read: https://thenewstack.io/which-service-mesh-should-i-use/
+* `Istio <https://istio.io/>`_ * Adds service control plane in the form of proxy sidecar containers
+* `Linkerd <https://linkerd.io/>`_ [CNCF_ incubated]
+    * *Conduit* joined with Linkerd
+* `Envoy <https://www.envoyproxy.io/>`_ - Communication mesh. L7 proxy and communication bus, runs on each node.
 
 --------------------
 Logging & Monitoring
@@ -964,3 +981,5 @@ Interesting
 .. _k8s_federation: https://kubernetes.io/docs/concepts/cluster-administration/federation/
 
 .. _k8s_Network_Policy: https://kubernetes.io/docs/concepts/services-networking/network-policies/
+
+-- _Helm: https://helm.sh/
