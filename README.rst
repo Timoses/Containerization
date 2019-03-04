@@ -418,12 +418,18 @@ Operator
 
 Service Mesh
 ~~~~~~~~~~~~
-Monitor, manage and control services. Resiliency features, ...
+Monitor, manage and control services.
+
+A service mesh typically consists of a *control plane* and a *data plane*. The *data plane* is usually comprised of sidecar proxies deployed next to the service or application.
+
 * Read: https://thenewstack.io/which-service-mesh-should-i-use/
-* `Istio <https://istio.io/>`_ * Adds service control plane in the form of proxy sidecar containers
-* `Linkerd <https://linkerd.io/>`_ [CNCF_ incubated]
+* Istio_
+    * Uses Envoy_ as data plane proxies
+* Linkerd_ [CNCF_ incubated]
     * *Conduit* joined with Linkerd
-* `Envoy <https://www.envoyproxy.io/>`_ - Communication mesh. L7 proxy and communication bus, runs on each node.
+    * Uses custom proxy solution
+    * Said to be less complicated than Istio_
+* Envoy_ - Communication mesh. L7 proxy and communication bus, runs on each node.
 
 Logging & Monitoring
 --------------------
@@ -930,9 +936,18 @@ Interesting
 .. _git flannel: https://github.com/coreos/flannel
 .. _kuber-router: https://www.kube-router.io/
 
+.. -----------------------
+   Service Mesh & Proxying
+   -----------------------
+
+.. _Envoy: https://www.envoyproxy.io/
+.. _Istio: https://istio.io
+.. _Linkerd: https://linkerd.io
+
 .. ----------
    Kubernetes
    ----------
+
 
 .. _k8s_api: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.13
 
