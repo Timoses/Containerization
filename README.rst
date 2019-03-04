@@ -31,7 +31,8 @@ CNCF_
 -----
 
 [`Definition <Definition CNCF_>`_] - Cloud Native Computing Foundation
-[`Landscape <https://l.cncf.io>`_]
+
+[`Landscape <https://l.cncf.io>`_] - A map of cloud native technology and their implementations
 
 OCI
 ---
@@ -131,7 +132,7 @@ Images
 * An image consists of a file system and metadata such as image author and the container configuration (environment variables, volumes, commands to execute, ...)
 * The filesystem consists of layers
     * Layers are immutable once created
-    * -> Images/Containers can share lower layers/images
+    * -> Images/Containers can share layers/images
 * Union/layer-based file systems enable mounting all layers (other approaches exist)
     * Editing filesystem in the thin container layer will perform a Copy-On-Write (CoW)
     * Copy-On-Write operations can impact performance if image is large
@@ -337,6 +338,7 @@ Motivation
     * replacing containers from a broken node
     * supervising container health
 
+
 `Red Hat: Ten Layers of Container Security - 6. Container orchestration <https://www.redhat.com/cms/managed-files/cl-container-security-openshift-cloud-devops-tech-detail-f7530kc-201705-en.pdf>`__ :
 "When managing container deployment at scale, you need to consider:
 
@@ -390,7 +392,7 @@ Config
     * client/server architecture
 * ? Packer.io, Saltstack, Confd
 * https://www.upguard.com/articles/the-7-configuration-management-tools-you-need-to-know
-* `GitOps <https://www.weave.works/blog/gitops-operations-by-pull-request>`_ (use git for continuous deployment, see also [Configuration Monitoring](#configuration-monitoring))
+* `GitOps <https://www.weave.works/blog/gitops-operations-by-pull-request>`_ (use git for continuous deployment, see also `Configuration Monitoring`_)
     * ??? Repo Structure, 1 repo/cluster?
         * ? How to integrate e.g. Helm?
         * /
@@ -446,22 +448,24 @@ Definitions
 * Logs should be written to stdout/stderr in the container
   (Otherwise: use *"sidecar"* container)
 * GKE uses `fluentd <https://github.com/GoogleCloudPlatform/k8s-stackdriver/tree/master/fluentd-gcp-image>`_ (vs Logstash?)
-* **Tools**:
-    * `Prometheus <https://github.com/prometheus/prometheus>`_ (Data Aggregation of *Metrics*)
-        * Setup1
-            * InfluxDB (storage backend)
-            * Grafana (Visualization)
-        * Setup2
-            * ELK (E:storage, L: logging, K:visualization)
-        * Icinga: Query data from Prometheus?...
-        * Icinga vs Prometheus:
-            * Icinga = server/software health via scripts, ...
-            * Prometheus = time series of metrics fetched via http
-        * JMX (Java Management Extensions): Exporter exists
-    * `Veneur <https://github.com/stripe/veneur>`_ & `Veneur-Prometheus <https://github.com/stripe/veneur/tree/master/cmd/veneur-prometheus>`_ & `StatsD <https://github.com/etsy/statsd>`_
-    * `Google Stackdriver <https://cloud.google.com/monitoring/kubernetes-engine/>`_
+
+Tools
+~~~~~
+* `Prometheus <https://github.com/prometheus/prometheus>`_ (Data Aggregation of *Metrics*)
+    * Setup1
+        * InfluxDB (storage backend)
+        * Grafana (Visualization)
+    * Setup2
+        * ELK (E:storage, L: logging, K:visualization)
+    * Icinga: Query data from Prometheus?...
+    * Icinga vs Prometheus:
+        * Icinga = server/software health via scripts, ...
+        * Prometheus = time series of metrics fetched via http
+    * JMX (Java Management Extensions): Exporter exists
+* `Veneur <https://github.com/stripe/veneur>`_ & `Veneur-Prometheus <https://github.com/stripe/veneur/tree/master/cmd/veneur-prometheus>`_ & `StatsD <https://github.com/etsy/statsd>`_
+* `Google Stackdriver <https://cloud.google.com/monitoring/kubernetes-engine/>`_
     * `kube-state-metrics <https://github.com/kubernetes/kube-state-metrics>`_: K8s add-on agent to generate and expose cluster-level metrics
-* Cluster visualisation
+* Cluster visualisation??
 
 Configuration Monitoring
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -505,16 +509,24 @@ Git Docs: [`Architecture <https://github.com/kubernetes/community/blob/master/co
     * Declarative configuration: The desired state is described rather than configured step by step
 * Supported by lots of PaaS -> Cloud Providers
 
->### Definitions
-> * **CLI Tools**
->     * **kubectl** [`api <https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands>`_]
->     * [**kubeadm**](https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm/) - Kubernetes kubelet administration (Initialising master node and joining nodes)
-> * **Kubelet**: Node agent running on each node
-> * **Ingress**: external load balancer, access to kubernetes services/pods from outside
-> * "`Sidecar <https://docs.microsoft.com/en-us/azure/architecture/patterns/sidecar>`_" container: Container in a pod that augments pod functionalities (e.g. metric exposure for [Monitoring](###Logging-&-Monitoring), connection handling, ...)
-> * **etcd** - Stores the cluster state. Several etcd nodes (replication!) should be running reliably to guarantee cluster running properly!
-> * **Helm** & **Kustomize** & **Kapitan** - K8s application deployment management
-> *high-availability cluster*: A cluster with more than one master node or implementing other means to ensure resilience
+Definitions
+~~~~~~~~~~~
+CLI Tools
+    * kubectl_ [`api <https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands>`_]
+    * kubeadm_
+      Kubernetes administration (Initialising master node and joining nodes)
+Kubelet
+    Node agent running on each node
+Ingress
+    external load balancer, access to kubernetes services/pods from outside
+"`Sidecar <https://docs.microsoft.com/en-us/azure/architecture/patterns/sidecar>`_" container
+    Container in a pod that augments pod functionalities (e.g. metric exposure for `Logging & Monitoring`_ , connection handling, ...)
+etcd
+    Stores the cluster state. Several etcd nodes (replication!) should be running reliably to guarantee cluster running properly!
+Helm & Kustomize & Kapitan
+    K8s application deployment management
+high-availability cluster
+    A cluster with more than one master node or implementing other means to ensure resilience
 
 Architecture
 ~~~~~~~~~~~~
@@ -965,5 +977,11 @@ Interesting
 .. _k8s_federation: https://kubernetes.io/docs/concepts/cluster-administration/federation/
 
 .. _k8s_Network_Policy: https://kubernetes.io/docs/concepts/services-networking/network-policies/
+
+.. Command Tools
+   -------------
+
+.. _kubeadm: https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm/
+.. _kubectl: https://kubernetes.io/docs/reference/kubectl/overview/
 
 -- _Helm: https://helm.sh/
