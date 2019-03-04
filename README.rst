@@ -1,7 +1,6 @@
 .. Header levels:
-   ==  --
-   L1  L2 L3 L4 L5 L6
-   ==  -- == -- `` ~~
+   L1 L2 L3 L4 L5 L6
+   == -- ~~ "" '' ``
 
 
 .. contents:: **Contents**
@@ -10,7 +9,7 @@
 
 .. sectnum:: :depth: 3
 
-==========
+
 Stay sharp
 ==========
 A list of resources to stay up to date in the rapidly developing world of Kubernetes:
@@ -21,7 +20,6 @@ A list of resources to stay up to date in the rapidly developing world of Kubern
 * https://www.infoq.com/Kubernetes/news
 * https://learnk8s.io/blog
 
-=============
 Organizations
 =============
 .. _Definition CNCF: https://github.com/cncf/toc/blob/master/DEFINITION.md
@@ -29,21 +27,18 @@ Organizations
 .. _OCI image spec: https://github.com/opencontainers/image-spec/
 .. _OCI runtime spec: https://github.com/opencontainers/runtime-spec/
 
------
 CNCF_
 -----
 
 [`Definition <Definition CNCF_>`_] - Cloud Native Computing Foundation
 [`Landscape <https://l.cncf.io>`_]
 
----
 OCI
 ---
 [`git <OCI git_>`_] - Open Container Initiative: Specifies standards to drive interoperability of container technologies
     * `Image specification <OCI image spec_>`_
     * `Runtime specification <OCI runtime spec_>`_
 
-================
 Containerization
 ================
 .. _container terminology red hat: https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction/#h.def2e0bag2rr
@@ -83,7 +78,6 @@ Reads: `Container Terminology {Red Hat} <container terminology red hat_>`_
         * IPC (InterProcess Communication) [`read <read namespaces IPC_>`_]
         * USER: user isolation
 
-----------
 Motivation
 ----------
 * Shift away from monolithic applications to decoupled microservices
@@ -106,7 +100,6 @@ Motivation
         * sufficient isolation?
     * Reads: `medium <https://medium.com/flow-ci/introduction-to-containers-concept-pros-and-cons-orchestration-docker-and-other-alternatives-9a2f1b61132c>`_
 
---------------
 Best practices
 --------------
 .. _google best practices container operation statelessness: https://cloud.google.com/solutions/best-practices-for-operating-containers#statelessness
@@ -131,7 +124,6 @@ Best practices
     * developers need not implement advanced logging mechanisms
     * standard way to retrieve logs from containers
 
-------
 Images
 ------
 `OCI Spec <https://github.com/opencontainers/image-spec/blob/master/config.md>`_
@@ -150,7 +142,7 @@ Images
     alt: Image architecture
 
 Formats
-=======
+~~~~~~~
 * Dockerfile_ - Layers are represented by instructions
     * The way to define container images in Docker world
 
@@ -173,7 +165,7 @@ Formats
 
 
 Build Tools
-===========
+~~~~~~~~~~~
 * buildah_ [`git <git buildah_>`_] - (Dockerfile, cli) {[Containers], ?[ProjectAtomic]?}
 * kaniko_ (Dockerfile) {Google/Kubernetes} -
     * vs docker daemon: requires no root user access
@@ -181,20 +173,20 @@ Build Tools
 * `Image Rebase <https://github.com/google/image-rebase>`_ {Google} - Tool to "exchange" lower layers of an image (experimental)
 
 Registry
-========
+~~~~~~~~
 * repository for images
 * image version control
 * image signing
 
 Tools
------
+"""""
 * skopeo_ {Containers_, ?ProjectAtomic_?} - Interaction with image registries
     * `inspect`\ ing image (info and layers) without downloading it
     * `copy` image from one registry to another
     * supports various registries (Docker, OCI, Atomic, ...)
 
 Hosts & registry software
--------------------------
+"""""""""""""""""""""""""
 * Private
     * Harbor_ {CNCF_, previously VMWare}
         * extends *Docker Distribution* (Docker registry software)
@@ -219,7 +211,6 @@ Hosts & registry software
 * Read:
     * https://www.objectif-libre.com/en/blog/2018/08/02/self-hosted-docker-registries-showdown/
 
---------------------
 Runtime & interfaces
 --------------------
 * read:
@@ -243,7 +234,7 @@ Container runtime is an overloaded term and may be discerned into low-level and 
 `CRI <https://kubernetes.io/blog/2016/12/container-runtime-interface-cri-in-kubernetes/>`_ {Google} - API was introduced to abstract away the container runtime
 
 Tools & Runtimes
-================
+~~~~~~~~~~~~~~~~
 Some only implement low-level features for running containers, others also implement image management, registry interactions, APIs and more
 
 * rkt_ {Red Hat, previously CoreOS} -
@@ -263,7 +254,6 @@ Some only implement low-level features for running containers, others also imple
 * frakti_ - CRI_
 * `CloudFoundryGarden <https://github.com/cloudfoundry/garden>`_
 
-------
 Docker
 ------
 * Docker made containerization popular. OS-level virtualization is not new however: `FreeBSD jail <https://en.wikipedia.org/wiki/FreeBSD_jail>`_ was introduced in 2000.
@@ -283,7 +273,6 @@ Docker
         * or tmpfs if non-persistent (and/or sensitive) data (memory storage)
 * Docker is great for quick and easy setup of development environments
 
---
 OS
 --
 Container host OSs require only a few tools. Making them lightweight increases scalability.
@@ -297,7 +286,6 @@ Container host OSs require only a few tools. Making them lightweight increases s
 * Photon {vmware}
 * Mesosphere DC/OS (in conjunction with Mesos and Marathon)
 
---------
 Security
 --------
 Reads: `Twistlock <https://www.twistlock.com/2018/08/30/container-image-registry-security-best-practices/>`__
@@ -318,39 +306,27 @@ Reads: `Twistlock <https://www.twistlock.com/2018/08/30/container-image-registry
     * from point 6 onwards: OpenShift is "advertised"
 
 Solutions
-=========
+~~~~~~~~~
 * `Tenable Container Security <https://www.tenable.com/products/tenable-io/container-security>`_
 * `Twistlock <https://www.twistlock.com>`__
 * `Aqua <https://www.aquasec.com/>`_
 * `Stackrox <https://www.stackrox.com/>`_
 * `Aporeto <https://www.aporeto.com/>`_
 
-------------
 Organisation
 ------------
 * Different departments/teams may be responsible for layers of an image (e.g. Operations for base image)
 
-----------
 References
 ----------
 * https://www.redhat.com/en/topics/containers/whats-a-linux-container
 
 
-
-
-
-
-
-
-
-
-=======================
 Container Orchestration
 =======================
 - Useful?
     - http://www.confd.io/ : Kubernetes already runs etcd
 
-----------
 Motivation
 ----------
 * Managing multiple containers
@@ -372,7 +348,6 @@ Motivation
 * How you automatically scale application capacity to meet demand.
 * How to enable developer self-service while also meeting security requirements."
 
--------------------
 Orchestration tools
 -------------------
 * Kubernetes_
@@ -380,7 +355,6 @@ Orchestration tools
 * Mesos/Marathon ?, Mesosphere?
 * Nomad ?
 
------------
 Deployments
 -----------
 Deploying new versions of software
@@ -391,14 +365,13 @@ Deploying new versions of software
     - work better when number of replicas is small
     - https://bitbucket.org/amdatulabs/amdatu-kubernetes-deployer
 
-----------
 Management
 ----------
 
 Infrastructure as Code (IAC)
 
 Config
-======
+~~~~~~
 
 * ??? Packer, Salt(Stack) (Cloud)
 * **Ansible** - Configure and manage inventory with playbooks (roles -> playbooks -> tasks -> modules)
@@ -434,17 +407,17 @@ Config
     * Use Helm?? Could use cluster architecture templates, and populate different values for different cluster instances?
 
 Package
-=======
+~~~~~~~
 * Helm_
 
 Operator
-========
+~~~~~~~~
 `Operator Pattern <https://coreos.com/operators/>`_: Use Custom Resource Definitions and Controllers to establish operators within Kubernetes
 
 * https://www.operatorhub.io/
 
 Service Mesh
-============
+~~~~~~~~~~~~
 Monitor, manage and control services. Resiliency features, ...
 * Read: https://thenewstack.io/which-service-mesh-should-i-use/
 * `Istio <https://istio.io/>`_ * Adds service control plane in the form of proxy sidecar containers
@@ -452,12 +425,11 @@ Monitor, manage and control services. Resiliency features, ...
     * *Conduit* joined with Linkerd
 * `Envoy <https://www.envoyproxy.io/>`_ - Communication mesh. L7 proxy and communication bus, runs on each node.
 
---------------------
 Logging & Monitoring
 --------------------
 
 Definitions
-===========
+~~~~~~~~~~~
 **Black-box monitoring**
     Testing externally visible behavior as a user would see it [[SRE_C6]].
 **White-box monitoring**
@@ -486,19 +458,18 @@ Definitions
 * Cluster visualisation
 
 Configuration Monitoring
-========================
+~~~~~~~~~~~~~~~~~~~~~~~~
 * `kubediff <https://github.com/weaveworks/kubediff>`_ - check difference in k8s config to a git repo (IAC monitoring)
     * or `kubectl diff`
     * also ansiblediff and terradiff...
 
 
------------
 Development
 -----------
 Kubernetes opens a wide array of new opportunities for app development.
 
 In-cluster building
-===================
+~~~~~~~~~~~~~~~~~~~
 .. _jenkinsx: https://jenkins.io/projects/jenkins-x/
 .. _ksync: https://github.com/vapor-ware/ksync
 
@@ -509,7 +480,6 @@ Instead of building source code on a developer's local machine, the source code 
 
 
 
-----------
 Kubernetes
 ----------
 
@@ -541,50 +511,50 @@ Git Docs: [`Architecture <https://github.com/kubernetes/community/blob/master/co
 > *high-availability cluster*: A cluster with more than one master node or implementing other means to ensure resilience
 
 Architecture
-============
+~~~~~~~~~~~~
 * API-Server talks to etcd (stores cluster desired state - yaml files)
 
 .. image:: ./graphics/k8s_architecture.png
 
 
 master / control plane
-----------------------
+""""""""""""""""""""""
 
 etcd
-````
+''''
 * Persistent storage for Kubernetes' state
 
 kube-apiserver
-``````````````
+''''''''''''''
 * API to access cluster configuration (stored in etcd)
 * accessible by kubectl, REST
 * `Service Acount <https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/>`_ are accounts for processes/pods in the cluster to access the api server
 
 kube-controller-manager
-```````````````````````
+'''''''''''''''''''''''
 * reads desired cluster state from API-Server and makes necessary adjustments
 * stands for various controllers such as replication controller, namespace controller, ...
     * custom controllers can be implemented here
 
 `kube-scheduler <https://kubernetes.io/docs/reference/command-line-tools-reference/kube-scheduler/>`_
-`````````````````````````````````````````````````````````````````````````````````````````````````````
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 * schedules pod creation and destruction to nodes according to rules and specifications such as resource requirements, affinity, ...
 
 Node
-----
+""""
 * worker machine - VM or physical machine
 * runs pods and contains their required services
 
 kubelet
-```````
+'''''''
 Agent running on nodes. Ensures Pods are running and are healthy according to assigned PodSpecs.
 
 kube-proxy
-``````````
+''''''''''
 Maintains network rules on the node via iptables. Monitors services and endpoints.
 
 Pod
----
+"""
 .. _k8s pod liveness and readiness probes: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes
 
 *  Group of one or more containers (e.g. Docker), share network(IP(same localhost), port space)/storage, can use standard IPC
@@ -613,7 +583,7 @@ Pod
 
 
 `Service <k8s_Service_>`_
--------------------------
+"""""""""""""""""""""""""
 
 .. _NodePort: k8s_Service_NodePort_
 .. _LoadBalancer: k8s_Service_LoadBalancer_
@@ -625,7 +595,7 @@ A DNS record will be created for a service, allowing access via the service name
 Different proxy modes are available for routing Services (https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies).
 
 `Types <https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types>`_
-`````````````````````````````````````````````````````````````````````````````````````````````````````````````
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 * ClusterIP: Expose service endpoints (pods running the service) via a virtual cluster-internal IP.
 * NodePort_: Expose service on every node IP at static port (<NodeIP>:<NodePort>)
 * LoadBalancer_: Expose service externally using a cloud provider's load balancer.
@@ -635,12 +605,12 @@ Access to *ClusterIP* is forwarded to (by default) a random Service endpoint.
 Both NodePort_ and LoadBalancer_ make use of the ClusterIP and therefore are routed once more to a random endpoint.
 
 Security
-````````
+''''''''
 * Configure `Security Context <https://kubernetes.io/docs/tasks/configure-pod-container/security-context/>`_ for pods
 
 
 `Ingress <k8s_Ingress_>`_
--------------------------
+"""""""""""""""""""""""""
 "Exposes HTTP(S) routes from outside the cluster to services within the cluster."
 - L7 Load balancing, TLS termination, name-based virtual hosting
 
@@ -650,18 +620,18 @@ Compared to a Service, Ingress is a resource decoupled from the application depe
 Further, a service of type LoadBalancer_ would create a loadbalancer for every service.
 
 `Ingress controllers <k8s_Ingress_IngressController_>`_
-```````````````````````````````````````````````````````
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''
 Ingress controllers implement Ingress API resources in the targetted platform (F5 LB, nginx, ...).
 Multiple ingress controllers may exist in a cluster; an Ingress rule can specify which to use (https://github.com/kubernetes/ingress-gce/blob/master/examples/PREREQUISITES.md#ingress-class).
 There are several Ingress controllers available:
 * F5 BIG-IP Controller (https://clouddocs.f5.com/containers/v2/kubernetes/)
 
 Resources
-`````````
+'''''''''
 * https://youtu.be/Syw2PzRudIM
 
 `Namespaces <https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/>`_
----------------------------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 * Namespaces are like virtual clusters within K8s which are logically isolated from each other.
 * Service names can be reused multiple times in different namespaces (cross-access via domain name <service>.<namespace>)
 * Use cases:
@@ -674,11 +644,11 @@ Resources
         * There are no security enforcement options between namespaces
 
 `Resource Quota <https://kubernetes.io/docs/concepts/policy/resource-quotas/>`_
-```````````````````````````````````````````````````````````````````````````````
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 * Limit resources (pods, services, compute resources, ...) per namespace
 
 PKI
----
+"""
 * A cluster can have its own root CA. It is also possible to use one root CA for several clusters:
     * https://jvns.ca/blog/2017/08/05/how-kubernetes-certificates-work/
 * `Node TLS bootstrapping <https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet-tls-bootstrapping/>`_
@@ -686,7 +656,7 @@ PKI
 
 
 Networking
-==========
+~~~~~~~~~~
 `Networking model <https://kubernetes.io/docs/concepts/cluster-administration/networking/#kubernetes-model>`_
 
 > #### Definitions
@@ -701,28 +671,28 @@ Networking
 * Every node is assigned a CIDR block for pod IPs
 
 IP Address allocation
----------------------
+"""""""""""""""""""""
 Private IP Addresses: https://tools.ietf.org/html/rfc1918
 https://cloud.google.com/kubernetes-engine/docs/how-to/flexible-pod-cidr
 
 Pod network
------------
+"""""""""""
 Pod to Pod on same Node
-```````````````````````
+'''''''''''''''''''''''
 via Linux Bridge
 
 Pod to Pod on another Node
-``````````````````````````
+''''''''''''''''''''''''''
 * Manual router configuration: Update to route Pod IPs to correct Node
 * Overlay network: Create a virtual network utilizing tools like iptables
 
 IPv6
-----
+""""
 * https://github.com/leblancd/kube-v6
 * https://opsnotice.xyz/kubernetes-ipv6-only/
 
 CNI Plugins
------------
+"""""""""""
 CNI plugins offer various methods of establishing connectivity between pods.
 
 Benchmark: https://itnext.io/benchmark-results-of-kubernetes-network-plugins-cni-over-10gbit-s-network-36475925a560
@@ -746,14 +716,14 @@ Benchmark: https://itnext.io/benchmark-results-of-kubernetes-network-plugins-cni
 * Multus: Allows connecting multiple network interfaces to a Pod https://github.com/intel/multus-cni
 
 Routing
--------
+"""""""
 See also `Ingress`.
 
 https://www.getambassador.io/ : Gateway
 
 
 DNS
----
+"""
 .. _ExternalDNS: https://github.com/kubernetes-incubator/external-dns
 
 [`Concept <https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/>`_]
@@ -761,26 +731,26 @@ DNS
 Kubernetes control plane sets up a DNS server. Every pod created will use this for name resolution. This way, services can be resolved.
 
 Tools
-`````
+'''''
 * CoreDNS_ {CNCF_} - with k8s v1.13 default DNS service (replacing kube-dns)
 * ExternalDNS_ -
 * `SkyDNS <https://github.com/skynetservices/skydns>`_
 
 
 Security
---------
+""""""""
 * `Network policy <k8s_Network_Policy_>`_ : Restrict network traffic between pods/nodes
     * Default deny policy
 
 
 Resources
----------
+"""""""""
 * https://youtu.be/OaXWwBLqugk
 * https://youtu.be/0Omvgd7Hg1I
 
 
 Storage
-=======
+~~~~~~~
 .. _CSI Spec: https://github.com/container-storage-interface/spec
 .. _CSI Doc: https://kubernetes-csi.github.io/docs/
 
@@ -789,20 +759,20 @@ Storage
 * CSI [`Spec <CSI Spec_>`_] [`Doc <CSI Doc_>`_] - Container Storage Interface
 
 Security
-========
+~~~~~~~~
 * CIS Benchmark Kubernetes https://downloads.cisecurity.org
     * Advice on how to configure and run K8s
 * https://thenewstack.io/4-major-tenets-kubernetes-security/
 * Authentication -> Authorization -> [Admission Control](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#what-does-each-admission-controller-do)
 
 Tools
------
+"""""
 * aquasecurity/kube-bench
 * kube-hunter (penTest)
 * micro-scanner
 
 Authentication
---------------
+""""""""""""""
 `Doc <https://kubernetes.io/docs/reference/access-authn-authz/authentication/>`__
 
 * Basic Auth
@@ -810,9 +780,9 @@ Authentication
 * bearer tokens
 
 OpenIDConnect
-`````````````
+'''''''''''''
 Plugins/Helpers
-~~~~~~~~~~~~~~~
+```````````````
 :code:`kubectl` does not itself fetch the tokens from the IdP (Identity Provider). Helper utilities can be used to automatically set up the kubectl config file:
 
    + https://github.com/int128/kubelogin
@@ -822,20 +792,20 @@ Plugins/Helpers
 
 
 Resources
-~~~~~~~~~
+`````````
 
 * OIDC explained: https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1
 * `Experience Report <https://medium.com/@mrbobbytables/kubernetes-day-2-operations-authn-authz-with-oidc-and-a-little-help-from-keycloak-de4ea1bdbbe>`_
 
 Authorization
--------------
+"""""""""""""
 
 
 
 Cluster Deployment
-==================
+~~~~~~~~~~~~~~~~~~
 Tools
------
+"""""
 * Kubespray (Ansible)
     * `Install Guide <https://kubernetes.io/docs/setup/custom-cloud/kubespray/>`_
     * `NetChecker <https://github.com/kubernetes-incubator/kubespray/blob/master/docs/netcheck.md>`_ - check pod connectivity
@@ -845,22 +815,22 @@ Tools
 * `TARMAK <https://github.com/jetstack/tarmak>`_ (Puppet & Terraform)
 
 `Federation <k8s_federation_>`__ of Clusters
-============================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * Allows domain access routed to multiple backends in different clusters
 * Still an immature feature!
 
 Extending products
-==================
+~~~~~~~~~~~~~~~~~~
 (Kubernetes Management Platform)
 
 Rancher
--------
+"""""""
 
 Platform9
----------
+"""""""""
 
 Openshift
----------
+"""""""""
 - Before K8s existed, OpenShift used their own platform
 
 * vs Kubernetes: https://cloudowski.com/articles/10-differences-between-openshift-and-kubernetes/
@@ -872,15 +842,15 @@ Openshift
 * CloudForms : monitor health of containers in registry, prevent deployment of vulnerable containers, ...
 
 Nirmata
--------
+"""""""
 
 
 References
-----------
+""""""""""
 * https://blog.aquasec.com/kubernetes-management-platform-for-the-enterprise
 
 Experience Reports
-==================
+~~~~~~~~~~~~~~~~~~
 * `Lessons learned - One year using Kubernetes in Production <https://techbeacon.com/one-year-using-kubernetes-production-lessons-learned>`_
 * `Best practices K8s <https://www.weave.works/blog/kubernetes-best-practices>`_
 
@@ -888,7 +858,6 @@ ToDo:
 * `Best practices Kubernetes (Google) <https://www.google.com/search?q=site%3Acloudplatform.googleblog.com%20%22kubernetes%20best%20practices%22>`_
 
 
-=============
 ProjectAtomic
 =============
 * Red Hat project: SIG to design immutable OS -> immutable infrastructure*
@@ -898,7 +867,6 @@ ProjectAtomic
 
 
 
-===========
 Interesting
 ===========
 - Docker/Infrakit
