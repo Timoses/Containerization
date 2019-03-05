@@ -449,9 +449,9 @@ Definitions
   (Otherwise: use *"sidecar"* container)
 * GKE uses `fluentd <https://github.com/GoogleCloudPlatform/k8s-stackdriver/tree/master/fluentd-gcp-image>`_ (vs Logstash?)
 
-Tools
-~~~~~
-* `Prometheus <https://github.com/prometheus/prometheus>`_ (Data Aggregation of *Metrics*)
+Monitoring
+~~~~~~~~~~
+* Prometheus_ (Data Aggregation of *Metrics*)
     * Setup1
         * InfluxDB (storage backend)
         * Grafana (Visualization)
@@ -466,6 +466,11 @@ Tools
 * `Google Stackdriver <https://cloud.google.com/monitoring/kubernetes-engine/>`_
     * `kube-state-metrics <https://github.com/kubernetes/kube-state-metrics>`_: K8s add-on agent to generate and expose cluster-level metrics
 * Cluster visualisation??
+
+Log Aggregation
+~~~~~~~~~~~~~~~
+* Fluentd_
+    * Also popular in ELK stack: EFK
 
 Configuration Monitoring
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -937,6 +942,13 @@ Interesting
 .. _Podman: https://podman.io/
 .. _rkt: https://github.com/rkt/rkt/
 .. _runc: https://github.com/opencontainers/runc
+
+.. --------------------
+   Logging & Monitoring
+   --------------------
+
+.. _Fluentd: https://www.fluentd.org
+.. _Prometheus: https://prometheus.io
 
 .. -----------
    K8s Networking
