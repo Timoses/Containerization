@@ -1,0 +1,44 @@
+
+div.step {
+    height: 650px;
+}
+
+body {
+    font-family: 'verdana';
+}
+
+.footer {
+    position: absolute;
+    top: 25px;
+    left: 3%;
+    height: 50px;
+    width: 15%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    opacity: 0.35;
+}
+
+div#slide-number {
+    font-size: 3.5vh;
+}
+
+.step {
+    opacity: 0;
+    transition: opacity 1s;
+
+    height: 500px;
+}
+.step.active {
+      opacity: 1
+}
+
+/*********/
+/* Lists */
+.step li {
+    padding-top: 15px;
+}
+.step li li {
+    padding-top: 5px;
+}
+
+

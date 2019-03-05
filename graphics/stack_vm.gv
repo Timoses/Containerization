@@ -1,0 +1,21 @@
+digraph structs {
+    node [shape=record, fontname="helvetica"];
+    //stack [label="{Host | OS | Hypervisor (Type 2) | {Guest OS | Guest OS | Guest OS} | {App1 | App2 | App3} }"]
+    stack2 [label=<
+        <table BORDER="0" CELLBORDER="0" CELLPADDING="6">
+            <tr>
+                <td BGCOLOR="#ffc750">App1</td>
+                <td BGCOLOR="#ffc750">App2</td>
+                <td BGCOLOR="#ffc750">App3</td>
+            </tr>
+            <tr>
+                <td BGCOLOR="#849324">Guest OS</td>
+                <td BGCOLOR="#849324">Guest OS</td>
+                <td BGCOLOR="#849324">Guest OS</td>
+            </tr>
+            <tr><td COLSPAN="3" BGCOLOR="#5d7699">Hypervisor (Type 2)</td></tr>
+            <tr><td COLSPAN="3" BGCOLOR="#849324">OS</td></tr>
+            <tr><td COLSPAN="3" BGCOLOR="#437f97">Host</td></tr>
+        </table>
+    >];
+}

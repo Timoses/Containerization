@@ -1,0 +1,57 @@
+digraph kubernetes {
+    node [shape=box fontname=helvetica];
+    //rankdir=TB;
+    //overlap=false;
+    //splines=true;
+
+    kubectl [id="kubectl"]
+    etcd [id="etcd" shape=cylinder style=filled color="#7E95E9"];
+
+    subgraph cluster_kubemaster {
+        fontname=helvetica;
+        label=Master;labeljust=l;
+        style=filled;
+        color="#FFFFAD";
+        id="master";
+
+        kubeapi [id="master_kube-api" label="kube-api" width=4  style=filled color="#FFE87B"];
+        kubescheduler [id="master_kubescheduler" label="kube-scheduler" style=filled color="#FFE87B"];
+        kubecontrollermanager [id="master_kubecontrollermanager" label="kube-controller-manager" style=filled color="#FFE87B"];
+
+        kubescheduler -> kubeapi [id="edge_kubescheduler_kubeapi"];
+        kubecontrollermanager -> kubeapi [id="edge_kubecontrollermanager_etcd"];
+    };
+
+    subgraph cluster_kubenode1 {
+        fontname=helvetica;
+        label="Node";labeljust=l;
+        style=filled; color="#BEDBD4";
+        id="node1";
+
+        kubelet1 [id="node1_kubelet" label="kubelet" style=filled color="#FFE87B"];
+        kubeproxy1 [id="node1_kubeproxy" label="kube-proxy"];
+
+        Pod1_1 [id="node1_Pod1" label="Pod" style=filled color="#669999"];
+        Pod1_2 [id="node1_Pod2" label="Pod" style=filled color="#669999"];
+    };
+
+    subgraph cluster_kubenode2 {
+        fontname=helvetica;
+        label="Node";labeljust=l;
+        style=filled; color="#BEDBD4";
+        id="node2";
+
+        kubelet2 [id="node2_kubelet" label="kubelet" style=filled color="#FFE87B"];
+        kubeproxy2 [id="node2_kubeproxy" label="kube-proxy"];
+
+        Pod2_1 [id="node2_Pod1" label="Pod" style=filled color="#669999"];
+        Pod2_2 [id="node2_Pod2" label="Pod" style=filled color="#669999"];
+    };
+
+    kubeapi -> etcd [id="edge_kubeapi_etcd"];
+    kubectl -> kubeapi [id="edge_kubectl_kubeapi"];
+
+    kubelet1 -> kubeapi [id="edge_kubelet1_kubeapi"];
+    kubelet2 -> kubeapi  [id="edge_kubelet2_kubeapi"];
+
+}

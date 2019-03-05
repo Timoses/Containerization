@@ -1,0 +1,24 @@
+digraph kubernetes {
+    node [fontname=helvetica];
+
+    edge [style=dotted arrowType="open"];
+
+    Ingress1 [label="Ingress"];
+    Ingress2 [label="Ingress"];
+
+    subgraph cluster_sv1 {
+        label="K8s Cluster"
+        Service1 [label="Service"];
+        Service2 [label="Service"];
+
+        Pod1 [label="Pod"];
+        Pod2 [label="Pod"];
+        Pod3 [label="Pod"];
+
+        Service1 -> Pod1;
+        Service2 -> {Pod2,Pod3};
+    }
+
+    Ingress1 -> Service1;
+    Ingress2 -> Service2;
+}

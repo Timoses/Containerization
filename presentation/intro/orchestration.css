@@ -1,0 +1,10 @@
+
+##calico ul {
+    float: left;
+}
+#calico img, #calico p {
+    float: right;
+    position: relative;
+    top: -20%;
+    margin-left: 20px;
+}

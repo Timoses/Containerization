@@ -1,0 +1,84 @@
+graph kubernetes {
+    node [fontname=helvetica];
+
+    {
+        node [shape=plaintext]
+        Phys_Network [ image="router.png" label="" ]
+        Virt_Network [ id="virt_network" shape=ellipse label="Virtual network" rank="max" style=dashed]
+    }
+
+    node [shape=box];
+
+    subgraph cluster_node1 {
+        id="node1";
+        label=<Node1<BR /><FONT POINT-SIZE="10">Pod CIDR: 172.20.1.0/24</FONT>>
+        fontname=helvetica; labeljust=left;
+        style="rounded,filled"; color="#BEDBD4";
+
+        node1_eth0 [ id="node1_eth0"
+            label=<eth0<br />172.18.1.2>
+            fontsize=12 style=dotted
+            width=1.4 ]
+
+        subgraph virtual {
+            node1_pod1 [id="node1_pod1" label="Pod1" style=filled color="#669999"];
+            node1_pod2 [id="node1_pod2" label="Pod2" style=filled color="#669999"];
+            Bridge1 [id="node1_bridge" fontsize=12 style=dotted
+                    label="cbr0"]
+        }
+
+        node1_overlay [label=<Overlay<br />mechanism> shape=hexagon style=rounded]
+        node1_overlayplugin [label="overlay-plugin" style=filled color="#FFE87B"];
+
+        node1_overlay -- Bridge1
+        {
+            rank=same
+            node1_overlayplugin -- node1_overlay [style=dotted]
+            node1_overlay -- node1_eth0
+        }
+
+        Bridge1 -- node1_pod2
+        Bridge1 -- node1_pod1
+    }
+
+    subgraph cluster_node2 {
+        id="node2";
+        label=<Node2<BR /><FONT POINT-SIZE="10">Pod CIDR: 172.20.2.0/24</FONT>>
+        fontname=helvetica; labeljust=left;
+        style="rounded,filled"; color="#BEDBD4";
+
+        node2_eth0 [ id="node2_eth0"
+            label=<eth0<br />172.18.1.3>
+            fontsize=12 style=dotted
+            width=1.4 ]
+
+        subgraph virtual {
+            node2_pod1 [label="Pod3" style=filled color="#669999"];
+            node2_pod2 [label="Pod4" style=filled color="#669999"];
+            Bridge2 [id="node2_bridge" fontsize=12 style=dotted
+                    label="cbr0" ]
+        }
+
+        node2_overlay [label=<Overlay<br />mechanism> shape=hexagon style=rounded]
+        node2_overlayplugin [label="overlay-plugin" style=filled color="#FFE87B"];
+
+        node2_overlay -- Bridge2
+        {
+            rank=same
+            node2_overlayplugin -- node2_overlay [style=dotted]
+            node2_overlay -- node2_eth0
+        }
+
+        Bridge2 -- node2_pod2
+        Bridge2 -- node2_pod1
+    }
+
+
+    Phys_Network -- node1_eth0
+    Phys_Network -- node2_eth0
+
+    node1_pod1 -- Virt_Network [ id="edge_node1pod1_virtNetwork" style=dashed]
+    node1_pod2 -- Virt_Network [ id="edge_node1pod2_virtNetwork" style=dashed]
+    node2_pod1 -- Virt_Network [ id="edge_node2pod1_virtNetwork" style=dashed]
+    node2_pod2 -- Virt_Network [ id="edge_node2pod2_virtNetwork" style=dashed]
+}

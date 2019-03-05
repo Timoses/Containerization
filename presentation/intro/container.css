@@ -1,0 +1,23 @@
+/**********/
+/* Slides */
+#vmVsContainer td {
+    padding-left: 40px
+}
+#slide2:hover #node1 {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity 5s linear;
+}
+#slide2 #node1 {
+    visibility: hidden;
+    opacity: 0;
+}
+
+#container_concept_image ul {
+    float: left;
+}
+#container_concept_image img {
+    float: right;
+}
+
+
