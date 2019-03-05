@@ -140,7 +140,7 @@ Images
 * Running an image adds a thin, writable container layer
 
 .. image:: ./graphics/image_architecture.png
-    alt: Image architecture
+   :alt: Image architecture
 
 Formats
 ~~~~~~~
