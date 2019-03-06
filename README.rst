@@ -417,6 +417,9 @@ Operator
 `Operator Pattern <https://coreos.com/operators/>`_: Use Custom Resource Definitions and Controllers to establish operators within Kubernetes
 
 * https://www.operatorhub.io/
+* Resources:
+  * https://github.com/operator-framework/awesome-operators
+  * https://kubedex.com/operators/
 
 Service Mesh
 ~~~~~~~~~~~~
