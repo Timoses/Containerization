@@ -7,7 +7,7 @@
    :backlinks: none
    :depth: 3
 
-.. sectnum:: :depth: 3
+.. sectnum:: :depth: 5
 
 
 Stay sharp
@@ -480,7 +480,7 @@ Monitoring
 Log Aggregation
 ~~~~~~~~~~~~~~~
 * Fluentd_
-    * Also popular in ELK stack: EFK
+    * Also popular as a replacement for Logstash in ELK stack -> EFK
 
 Configuration Monitoring
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -533,7 +533,7 @@ CLI Tools
 Kubelet
     Node agent running on each node
 Ingress
-    external load balancer, access to kubernetes services/pods from outside
+    load balancer, access to kubernetes services/pods from outside
 "`Sidecar <https://docs.microsoft.com/en-us/azure/architecture/patterns/sidecar>`_" container
     Container in a pod that augments pod functionalities (e.g. metric exposure for `Logging & Monitoring`_ , connection handling, ...)
 etcd
@@ -655,8 +655,11 @@ Further, a service of type LoadBalancer_ would create a loadbalancer for every s
 `Ingress controllers <k8s_Ingress_IngressController_>`_
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''
 Ingress controllers implement Ingress API resources in the targetted platform (F5 LB, nginx, ...).
-Multiple ingress controllers may exist in a cluster; an Ingress rule can specify which to use (https://github.com/kubernetes/ingress-gce/blob/master/examples/PREREQUISITES.md#ingress-class).
+
+Multiple ingress controllers may exist in a cluster; an `Ingress rule can specify which to use <https://github.com/kubernetes/ingress-gce/blob/master/examples/PREREQUISITES.md#ingress-class>`_.
+
 There are several Ingress controllers available:
+
 * F5 BIG-IP Controller (https://clouddocs.f5.com/containers/v2/kubernetes/)
 
 Resources
@@ -684,6 +687,7 @@ PKI
 """
 * A cluster can have its own root CA. It is also possible to use one root CA for several clusters:
     * https://jvns.ca/blog/2017/08/05/how-kubernetes-certificates-work/
+    * With kubeadm `custom certificates <https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-init/#custom-certificates>`_ can be used
 * `Node TLS bootstrapping <https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet-tls-bootstrapping/>`_
 
 
@@ -692,16 +696,19 @@ Networking
 ~~~~~~~~~~
 `Networking model <https://kubernetes.io/docs/concepts/cluster-administration/networking/#kubernetes-model>`_
 
-> #### Definitions
-> * iptables: linux kernel programm to manipulate network data packages
-> CNI - Container Network Interface - Interface for easy addition and removal of pods to a pod network (used by kubelet)
-> [`SPEC <https://github.com/containernetworking/cni/blob/master/SPEC.md#overview-1>`_]
-
 * all containers can communicate with all other containers
 * all nodes can communicate with all containers (and vice-versa)
 * the IP that a container sees itself as is the same IP that others see it as
 * No NAT (vs Docker)
 * Every node is assigned a CIDR block for pod IPs
+
+Definitions
+"""""""""""
+
+iptables
+   linux kernel programm to manipulate network data packages
+CNI
+   Container Network Interface - Interface for easy addition and removal of pods to a pod network (used by kubelet) [`SPEC <https://github.com/containernetworking/cni/blob/master/SPEC.md#overview-1>`_]
 
 IP Address allocation
 """""""""""""""""""""
@@ -1006,4 +1013,4 @@ Interesting
 .. _kubeadm: https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm/
 .. _kubectl: https://kubernetes.io/docs/reference/kubectl/overview/
 
--- _Helm: https://helm.sh/
+.. _Helm: https://helm.sh/
