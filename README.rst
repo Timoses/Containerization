@@ -370,7 +370,6 @@ Deploying new versions of software
 Management
 ----------
 
-Infrastructure as Code (IAC)
 
 Container
 ~~~~~~~~~
@@ -380,38 +379,16 @@ Container
 Config
 ~~~~~~
 
-* ??? Packer, Salt(Stack) (Cloud)
-* **Ansible** - Configure and manage inventory with playbooks (roles -> playbooks -> tasks -> modules)
-        * client-only architecture
-        * Ansible Galaxy: Hub for sharing roles
-        * only client required (runs over ssh)
-* **Puppet** - config, deployment, ...
-    * client/server architecture *  Requires supporting infrastructure (master nodes, dbs)
-    * Periodically checks if servers/inventory are still in desired state
-    * r10k?
-* **Terraform** - Infrastructure **orchestration**
-    * client-only architecture
-    * manages infrastructure on **cloud provider platforms**
-    * not easily deployed on-premise
-* **Chef**
-    * client/server architecture
-* ? Packer.io, Saltstack, Confd
-* https://www.upguard.com/articles/the-7-configuration-management-tools-you-need-to-know
 * `GitOps <https://www.weave.works/blog/gitops-operations-by-pull-request>`_ (use git for continuous deployment, see also `Configuration Monitoring`_)
     * ??? Repo Structure, 1 repo/cluster?
-        * ? How to integrate e.g. Helm?
-        * /
-            * k8s
-                * deployments
-                * services
-                * ...?
-            * ansible
-            * ...
+        * ? How to integrate e.g. Helm? ? (https://github.com/stefanprodan/gitops-helm)
     * `Flux <https://github.com/weaveworks/flux>`_ - automated CI/CD from git repository (app code -> image -> cluster & config 'code' -> cluster)
         * `Example usage <https://github.com/stefanprodan/gitops-helm/blob/master/README.md>`_
     * Self:
         * Save PR number when changing config with kubectl: kubectl annotate, kubectl apply --record ?
     * Use Helm?? Could use cluster architecture templates, and populate different values for different cluster instances?
+
+* kubectl kustomize
 
 Package
 ~~~~~~~
@@ -545,6 +522,10 @@ high-availability cluster
 
 Architecture
 ~~~~~~~~~~~~
+
+.. contents::
+   :local:
+
 * API-Server talks to etcd (stores cluster desired state - yaml files)
 
 .. image:: ./graphics/k8s_architecture.png
