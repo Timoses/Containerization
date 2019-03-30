@@ -898,6 +898,15 @@ Interesting
 
 
 
+Cheat Sheet
+===========
+
+kubectl
+-------
+* Merging kubeconfig files:
+  :code:`KUBECONFIG=file1:file2:file3 kubectl config view --merge --flatten > out.txt`
+
+
 
 
 .. ======================
