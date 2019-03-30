@@ -367,6 +367,10 @@ Deploying new versions of software
     - work better when number of replicas is small
     - https://bitbucket.org/amdatulabs/amdatu-kubernetes-deployer
 
+Tools
+~~~~~
+* `Flagger <https://github.com/weaveworks/flagger>`_ : Automatic Canary deployments with Istio and Prometheus
+
 Management
 ----------
 
