@@ -499,7 +499,7 @@ Git Docs: [`Architecture <https://github.com/kubernetes/community/blob/master/co
 Definitions
 ~~~~~~~~~~~
 CLI Tools
-    * kubectl_ [`api <https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands>`_]
+    * kubectl_ [`api <https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands>`_][`doc <https://kubectl.docs.kubernetes.io/>`_]
     * kubeadm_
       Kubernetes administration (Initialising master node and joining nodes)
 Kubelet
