@@ -422,17 +422,8 @@ A service mesh typically consists of a *control plane* and a *data plane*. The *
     * Said to be less complicated than Istio_
 * Envoy_ (data plane) - Communication mesh. L7 proxy and communication bus, runs on each node.
 
-Logging & Monitoring
---------------------
-
-Definitions
-~~~~~~~~~~~
-**Black-box monitoring**
-    Testing externally visible behavior as a user would see it [[SRE_C6]].
-**White-box monitoring**
-    Monitoring based on metrics exposed by the internals of the system, including logs, interfaces like the Java Virtual Machine Profiling Interface, or an HTTP handler that emits internal statistics [[SRE_C6]]
-**Log rotation**
-    In case of logging into files (vs to stderr/stdout) log file sizes should be monitored and eventually archived to prevent storage saturation. ([`logrotate`](https://manpages.debian.org/jessie/logrotate/logrotate.8.en.html))
+Observability
+-------------
 
 * Logs should be written to stdout/stderr in the container
   (Otherwise: use *"sidecar"* container)
