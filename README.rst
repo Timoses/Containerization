@@ -421,6 +421,13 @@ A service mesh typically consists of a *control plane* and a *data plane*. The *
     * Uses custom proxy solution
     * Said to be less complicated than Istio_
 * Envoy_ (data plane) - Communication mesh. L7 proxy and communication bus, runs on each node.
+* Supergloo_ - "multi-mesh" mesh -> Manage and orchestrate multiple meshes on different clusters
+
+API Gateway
+~~~~~~~~~~~
+* Gloo_ - Serverless oriented API gateway
+* Ambassador_
+* Istio_ also has funtionalities to control ingress traffic
 
 Observability
 -------------
@@ -731,12 +738,6 @@ Benchmark: https://itnext.io/benchmark-results-of-kubernetes-network-plugins-cni
     * "more mature but also complicated way to build an overlay network. This is endorsed by several of the “Big Shops” for networking." [[Source](https://kubernetes.io/docs/concepts/cluster-administration/networking/#openvswitch)]
 * Multus: Allows connecting multiple network interfaces to a Pod https://github.com/intel/multus-cni
 
-Routing
-"""""""
-See also `Ingress`.
-
-https://www.getambassador.io/ : Gateway
-
 
 DNS
 """
@@ -966,9 +967,12 @@ kubectl
    Service Mesh & Proxying
    -----------------------
 
+.. _Ambassador: https://www.getambassador.io/
 .. _Envoy: https://www.envoyproxy.io/
+.. _Gloo: https://gloo.solo.io/
 .. _Istio: https://istio.io
 .. _Linkerd: https://linkerd.io
+.. _Supergloo: https://supergloo.solo.io/
 
 .. ----------
    Kubernetes
