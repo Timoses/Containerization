@@ -14,11 +14,15 @@ Stay sharp
 ==========
 A list of resources to stay up to date in the rapidly developing world of Kubernetes:
 
+Blogs:
 * https://kubernetes.io/blog/
 * https://www.cncf.io/newsroom/
 * https://kubedex.com/
 * https://www.infoq.com/Kubernetes/news
 * https://learnk8s.io/blog
+
+Podcasts:
+* https://kubernetespodcast.com/
 
 Organizations
 =============
