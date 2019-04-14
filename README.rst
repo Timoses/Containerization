@@ -486,6 +486,10 @@ Instead of building source code on a developer's local machine, the source code 
 * `Jenkins X <jenkinsx_>`_ utilizes this approach
     * ksync_ - synchronizes source code to a k8s pod
 
+Local
+~~~~~
+* `<Skaffold <https://skaffold.dev/>`_
+
 
 
 Kubernetes
@@ -791,6 +795,7 @@ Tools
 * aquasecurity/kube-bench
 * kube-hunter (penTest)
 * micro-scanner
+* Grafeas (metadata store) and Kritis (signer of images:) ????
 
 Authentication
 """"""""""""""
