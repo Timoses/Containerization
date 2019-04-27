@@ -387,20 +387,33 @@ Container
 Config
 ~~~~~~
 
-* `GitOps <https://www.weave.works/blog/gitops-operations-by-pull-request>`_ (use git for continuous deployment, see also `Configuration Monitoring`_)
-    * ??? Repo Structure, 1 repo/cluster?
-        * ? How to integrate e.g. Helm? ? (https://github.com/stefanprodan/gitops-helm)
-    * `Flux <https://github.com/weaveworks/flux>`_ - automated CI/CD from git repository (app code -> image -> cluster & config 'code' -> cluster)
-        * `Example usage <https://github.com/stefanprodan/gitops-helm/blob/master/README.md>`_
-    * Self:
-        * Save PR number when changing config with kubectl: kubectl annotate, kubectl apply --record ?
-    * Use Helm?? Could use cluster architecture templates, and populate different values for different cluster instances?
+See also `Configuration Monitoring`_.
+
+GitOps
+""""""
+
+GitOps enables the operation of the configuration management and its deployment via Git. Advantages are:
+* integrated versioning control system with an inclusive "auditing-system" (all commits and history of changes are version controlled)
+* Automaticity: Merges into a branch can be automatically deployed to a Kubernetes
+
+Tools
+'''''
+* Argo CD
+* Flux
+
+Resources
+'''''''''
+* `GitOps <https://www.weave.works/blog/gitops-operations-by-pull-request>`_
+
+Resource Management
+"""""""""""""""""""
+Resources (k8s yaml files) can be organized in different ways. One option is to use plain yamls and use `kubectl apply -f`. However, there are many tools to include things such as templating, overlays and more:
 
 * kubectl kustomize
-
-Package
-~~~~~~~
 * Helm_
+* Kapitan
+* ksonnet (jsonnet)
+
 
 Operator
 ~~~~~~~~
@@ -525,8 +538,6 @@ Ingress
     Container in a pod that augments pod functionalities (e.g. metric exposure for `Logging & Monitoring`_ , connection handling, ...)
 etcd
     Stores the cluster state. Several etcd nodes (replication!) should be running reliably to guarantee cluster running properly!
-Helm & Kustomize & Kapitan
-    K8s application deployment management
 high-availability cluster
     A cluster with more than one master node or implementing other means to ensure resilience
 
