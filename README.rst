@@ -433,6 +433,11 @@ A service mesh typically consists of a *control plane* and a *data plane*. The *
 * Read: https://thenewstack.io/which-service-mesh-should-i-use/
 * Istio_ (control plane)
     * Uses Envoy_ as data plane proxies
+    * Istio: Exposes SDS (secrete discovery service) API: https://preliminary.istio.io/docs/tasks/security/auth-sds/ to distribute secrets (e.g. certificates) to envoys
+    * Istio can do Auth (offloading Auth into infrastructure away from applications)
+      + Authentication (https://youtu.be/Ai8HlkI7Mm4?t=1119)
+      + Authorization (https://youtu.be/Ai8HlkI7Mm4?t=2177)
+        * RBAC or ABAC (with Open Policy Agent)
 * Linkerd_ [CNCF_ incubated]
     * *Conduit* joined with Linkerd
     * Uses custom proxy solution
@@ -778,6 +783,10 @@ Security
 * `Network policy <k8s_Network_Policy_>`_ : Restrict network traffic between pods/nodes
     * Default deny policy
 
+Troubleshooting
+"""""""""""""""
+
+* `kube-iptables-tailer <https://github.com/box/kube-iptables-tailer>`_ : Scans iptables logs and sends "packet drop" to pod events (visible using kubectl describe pod)
 
 Resources
 """""""""
