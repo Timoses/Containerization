@@ -847,6 +847,11 @@ Authorization
 """""""""""""
 
 
+Tools
+~~~~~
+* crictl (https://kubernetes.io/docs/tasks/debug-application-cluster/crictl/): Can inspect CRI-compliant container runtimes. E.g. useful for debugging and also when using various container runtimes on different nodes/clusters.
+
+
 
 Cluster Deployment
 ~~~~~~~~~~~~~~~~~~
