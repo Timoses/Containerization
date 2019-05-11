@@ -148,7 +148,7 @@ Architecture
     </style>
 
 .. raw:: html
-    :file: ./graphics/k8s_architecture.svg
+    :file: ../../graphics/k8s_architecture.svg
 
 * **Node**
     * VM
@@ -204,7 +204,7 @@ Architecture
     </style>
 
 .. raw:: html
-    :file: ./graphics/k8s_architecture.svg
+    :file: ../../graphics/k8s_architecture.svg
 
 * **Kubelet**
     * Create pods (assigned to node)
@@ -261,7 +261,7 @@ Architecture
     </style>
 
 .. raw:: html
-    :file: ./graphics/k8s_architecture.svg
+    :file: ../../graphics/k8s_architecture.svg
 
 
 * **kube-apiserver**
@@ -336,7 +336,7 @@ Architecture
     </style>
 
 .. raw:: html
-    :file: ./graphics/k8s_architecture.svg
+    :file: ../../graphics/k8s_architecture.svg
 
 * **kubectl**
     * User CLI to control cluster
@@ -474,7 +474,7 @@ Networking - Pod to pod on same Node
     </style>
 
 .. raw:: html
-    :file: ./graphics/k8s_network_manual.svg
+    :file: ../../graphics/k8s_network_manual.svg
 
 .. image:: ./router.png
     :height: 0px
@@ -518,7 +518,7 @@ Networking - Pod to pod over different nodes
     </style>
 
 .. raw:: html
-    :file: ./graphics/k8s_network_manual.svg
+    :file: ../../graphics/k8s_network_manual.svg
 
 .. image:: ./router.png
     :height: 0px
@@ -566,7 +566,7 @@ Networking - Overlay
     </style>
 
 .. raw:: html
-    :file: ./graphics/k8s_network.svg
+    :file: ../../graphics/k8s_network.svg
 
 .. image:: ./router.png
     :height: 0px
@@ -603,7 +603,7 @@ Networking - Overlay
     </style>
 
 .. raw:: html
-    :file: ./graphics/k8s_network.svg
+    :file: ../../graphics/k8s_network.svg
 
 .. image:: ./router.png
     :height: 0px
@@ -628,7 +628,7 @@ Kubernetes
 Networking - Calico
 --------------------
 
-.. image:: ./graphics/calico.svg
+.. .. image:: ../../graphics/calico.svg
     :width: 50%
 
 Source: https://docs.projectcalico.org/images/calico-arch-gen-v3.2.svg

@@ -71,12 +71,12 @@ VM vs Container
 
 Container = OS-level virtualization
 
-+----------------------------------+-----------------------------------------+
-| VM                               | Container                               |
-+==================================+=========================================+
-| .. raw:: html                    | .. raw:: html                           |
-|     :file: graphics/stack_vm.svg |     :file: graphics/stack_container.svg |
-+----------------------------------+-----------------------------------------+
++----------------------------------------+-----------------------------------------------+
+| VM                                     | Container                                     |
++========================================+===============================================+
+| .. raw:: html                          | .. raw:: html                                 |
+|     :file: ../../graphics/stack_vm.svg |     :file: ../../graphics/stack_container.svg |
++----------------------------------------+-----------------------------------------------+
 
 
 .. note::
@@ -151,7 +151,7 @@ Why use containers?
 Shift from monolithic towards microservices
 -------------------------------------------
 
-.. figure:: graphics/external/monolithic-v-microservices.jpg
+.. figure:: ../../graphics/external/monolithic-v-microservices.jpg
     :width: 100%
 
     Source: https://blog.g2crowd.com/blog/trends/digital-platforms/2018-dp/microservices/
@@ -242,7 +242,7 @@ Container Concepts
 Image
 -----
 
-.. image:: graphics/image_architecture.png
+.. image:: ../../graphics/image_architecture.png
 
 * Filesystem layers
     * lower layers can be shared
