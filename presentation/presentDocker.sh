@@ -7,14 +7,14 @@ if [ "$#" -ne 1 ] ; then
 fi
 
 SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+PRES_FILE="$(realpath --relative-to=$SCRIPTDIR $(pwd)/$1)"
+FONT_DIR=$SCRIPTDIR/"../fonts"
+GRAPH_DIR=$SCRIPTDIR/"../graphics"
 
+cd $GRAPH_DIR
 source "$SCRIPTDIR"/../graphics/build.sh svg
 source "$SCRIPTDIR"/../graphics/build.sh png
 
-PRES_FILE="$(realpath --relative-to=$SCRIPTDIR $(pwd)/$1)"
-
-FONT_DIR=$SCRIPTDIR/"../fonts"
-GRAPH_DIR=$SCRIPTDIR/"../graphics"
 
 if [[ $(uname) == MINGW64* ]] ; then
     docker run -i --rm -p "9000:9000" \

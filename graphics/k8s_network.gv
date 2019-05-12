@@ -27,14 +27,14 @@ graph kubernetes {
                     label="cbr0"]
         }
 
-        node1_overlay [label=<Overlay<br />mechanism> shape=hexagon style=rounded]
-        node1_overlayplugin [label="overlay-plugin" style=filled color="#FFE87B"];
+        node1_cni [label=<CNI plugin<br />connectivity> shape=hexagon style=rounded]
+        node1_cniplugin [label="cni-plugin" style=filled color="#FFE87B"];
 
-        node1_overlay -- Bridge1
+        node1_cni -- Bridge1
         {
             rank=same
-            node1_overlayplugin -- node1_overlay [style=dotted]
-            node1_overlay -- node1_eth0
+            node1_cniplugin -- node1_cni [style=dotted]
+            node1_cni -- node1_eth0
         }
 
         Bridge1 -- node1_pod2
@@ -59,14 +59,14 @@ graph kubernetes {
                     label="cbr0" ]
         }
 
-        node2_overlay [label=<Overlay<br />mechanism> shape=hexagon style=rounded]
-        node2_overlayplugin [label="overlay-plugin" style=filled color="#FFE87B"];
+        node2_cni [label=<CNI plugin<br />connectivity> shape=hexagon style=rounded]
+        node2_cniplugin [label="cni-plugin" style=filled color="#FFE87B"];
 
-        node2_overlay -- Bridge2
+        node2_cni -- Bridge2
         {
             rank=same
-            node2_overlayplugin -- node2_overlay [style=dotted]
-            node2_overlay -- node2_eth0
+            node2_cniplugin -- node2_cni [style=dotted]
+            node2_cni -- node2_eth0
         }
 
         Bridge2 -- node2_pod2

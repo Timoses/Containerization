@@ -3,22 +3,38 @@ digraph kubernetes {
 
     edge [style=dotted arrowType="open"];
 
-    Ingress1 [label="Ingress"];
-    Ingress2 [label="Ingress"];
+    Ingress1 [id="ingress1" label="Ingress"];
+    Ingress2 [id="ingress2" label="Ingress"];
 
     subgraph cluster_sv1 {
         label="K8s Cluster"
-        Service1 [label="Service"];
-        Service2 [label="Service"];
-
-        Pod1 [label="Pod"];
-        Pod2 [label="Pod"];
-        Pod3 [label="Pod"];
-
-        Service1 -> Pod1;
-        Service2 -> {Pod2,Pod3};
     }
 
-    Ingress1 -> Service1;
-    Ingress2 -> Service2;
+    {
+        rank=same;
+        Service1 [label="Service"];
+        Service2 [label="Service"];
+        Service3 [label="Service"];
+        Service4 [label="Service"];
+    }
+
+    Ip1 [shape=rect label="192.168.2.50"];
+    Domain1 [shape=rect label="google.com"];
+    Pod1 [label="Pod"];
+    Pod2 [label="Pod"];
+    Pod3 [label="Pod:5678"];
+    Pod4 [label="Pod:8080"];
+    Pod5 [label="Pod:8080"];
+
+    Service1 -> {Pod1,Pod2} [id="edge_svc1_pod1"];
+    Service2 -> Pod3 [id="edge_svc2_pod23" label=":80"];
+    Service2 -> {Pod4,Pod5} [id="edge_svc2_pod23" label=":25"];
+    Service3 -> Ip1 [id="edge_svc3_ip1"];
+    Service4 -> Domain1 [id="edge_svc4_domain1"];
+
+    Ingress1 -> Service1 [id="edge_ingress1_svc1" label="/docs"];
+    Ingress1 -> Service2 [id="edge_ingress1_svc2" label="/api"];
+
+    Ingress2 -> Service3 [id="edge_ingress2_svc3" label="docs.serv.int"];
+    Ingress2 -> Service4 [id="edge_ingress2_svc3" label="api.serv.int"];
 }

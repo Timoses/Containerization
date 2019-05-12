@@ -272,6 +272,7 @@ Architecture
 
 * **kube-controller-manager**
     * Periodically reads desired cluster state from API-Server and makes necessary adjustments
+    * contains multiple controllers bundled into one binary
 
 
 .. note::
@@ -280,7 +281,11 @@ Architecture
         * Affinity (to specific nodes, or (never) run side-by-side to specific Pod)
 
     kube-controller-manager:
-        * E.g. updates a deployment if the DeploymentSpec was updated (new image version for example)
+        * Updates a deployment if the DeploymentSpec was updated (new image version for example)
+        * Node Controller: Responsible for noticing and responding when nodes go down.
+        * Replication Controller: Responsible for maintaining the correct number of pods for every replication controller object in the system.
+        * Endpoints Controller: Populates the Endpoints object (that is, joins Services & Pods).
+        * Service Account & Token Controllers: Create default accounts and API access tokens for new namespaces
 
     etcd:
         * distributed key/value store
@@ -429,7 +434,7 @@ Networking
         * Container -> container on same node: bridge
         * Container -> container on other node:
             * manual routing table
-            * overlay network
+            * CNI network
 
 
 ----
@@ -476,7 +481,7 @@ Networking - Pod to pod on same Node
 .. raw:: html
     :file: ../../graphics/k8s_network_manual.svg
 
-.. image:: ./router.png
+.. image:: ../../graphics/router.png
     :height: 0px
 
 * Every Pod has an IP address
@@ -520,47 +525,49 @@ Networking - Pod to pod over different nodes
 .. raw:: html
     :file: ../../graphics/k8s_network_manual.svg
 
-.. image:: ./router.png
+.. image:: ../../graphics/router.png
     :height: 0px
 
 * Routing of packets from pods accross nodes:
     * Manual configuration of routing tables
-    * Overlay network
+    * CNI network
 
 .. note::
     * CIDR: Could say 172.20/16 for pods and 172.18/16 for nodes
 
     * manual config: program routes into router
-    * otherwise: overlay/virtual network
+    * otherwise: cni/virtual network
 
 
 ----
 
 
-:id: network-overlay
+:id: network-cni
 
 Kubernetes
 ==========
 
-Networking - Overlay
---------------------
+Networking - CNI
+----------------
+
+CNI: Container Networking Interface
 
 .. raw:: html
 
     <style>
-        #network-overlay svg {
+        #network-cni svg {
             position: relative;
             left: -150px;
             margin-bottom: -120px;
             z-index: -100;
         }
 
-        #network-overlay svg g g[id="virt_network"],
-        #network-overlay svg g g[id$="virtNetwork"] {
+        #network-cni svg g g[id="virt_network"],
+        #network-cni svg g g[id$="virtNetwork"] {
             display: none;
         }
 
-        #network-overlay {
+        #network-cni {
             height: 700px;
         }
     </style>
@@ -568,36 +575,38 @@ Networking - Overlay
 .. raw:: html
     :file: ../../graphics/k8s_network.svg
 
-.. image:: ./router.png
+.. image:: ../../graphics/router.png
     :height: 0px
 
 
-* Overlay plugin implements overlay network
+* Overlay plugin implements CNI network
     * e.g. via iptables, vxlan, ...
 
 
 ----
 
 
-:id: network-overlay2
+:id: network-cni2
 
 Kubernetes
 ==========
 
-Networking - Overlay
---------------------
+Networking - CNI
+----------------
+
+CNI: Container Networking Interface
 
 .. raw:: html
 
     <style>
-        #network-overlay2 svg {
+        #network-cni2 svg {
             position: relative;
             left: -150px;
             margin-bottom: -20px;
             z-index: -100;
         }
 
-        #network-overlay2 {
+        #network-cni2 {
             height: 700px;
         }
     </style>
@@ -605,7 +614,7 @@ Networking - Overlay
 .. raw:: html
     :file: ../../graphics/k8s_network.svg
 
-.. image:: ./router.png
+.. image:: ../../graphics/router.png
     :height: 0px
 
 .. note::
@@ -614,6 +623,32 @@ Networking - Overlay
 
 ----
 
+
+:data-rotate-x: r0
+:data-x: r1600
+:data-y: r0
+:data-z: r0
+
+:id: cni-plugins
+
+Kubernetes
+==========
+
+Networking - CNI plugins
+------------------------
+
+* Calico: iptables, kube-proxy, IPIP (optional), BGP
+* Flannel: VXLAN, iptables
+* kuberouter: IPVS, BGP
+* Contiv
+* Weave Net
+* Cilium
+* Romana
+* ...
+* ...
+
+
+----
 
 :data-rotate-x: r0
 :data-x: r1600
@@ -631,12 +666,10 @@ Networking - Calico
 .. .. image:: ../../graphics/calico.svg
     :width: 50%
 
-Source: https://docs.projectcalico.org/images/calico-arch-gen-v3.2.svg
 
-
-* Layer 3, BGP
+* Routing: Layer 3, BGP for route distribution
 * calico/node manipulates iptables on node
-* stores virtual network information in *key/value store*
+* stores virtual network information in *key/value store* (etcd)
 * can implement network policies
     * e.g. which Pods may communicate with each other
 
@@ -648,6 +681,23 @@ Source: https://docs.projectcalico.org/images/calico-arch-gen-v3.2.svg
 
 
 ----
+
+Kubernetes
+==========
+
+Pod - Inter-Container communication
+-----------------------------------
+
+* Shared volumes
+* IPC (Inter-process communication)
+    * Shared memory
+    * Message passing
+* Network (localhost)
+
+
+
+----
+
 
 
 Openshift
@@ -675,22 +725,4 @@ Openshift
     * Gefahr eines "Lock-in"?
 
 
-----
 
-
-Extra
-=====
-
-* Services
-* Ingress
-* Namespaces
-
-.. note::
-    * Frage LB:
-        * Service aus Deployment (e.g. 3 replicas of image)
-            * Cluster internal DNS -> service can be resolved to service endpoints
-        * Ingress controller sets up load balancer to point to virtual service cluster ip
-        * Namespaces:
-            * <service-name>.<namespace> (DNS entry)
-            * asking for <service-name> only will provide the service within the current namespace
-                -> good for separating e.g. dev/prod environments
