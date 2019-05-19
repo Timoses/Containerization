@@ -282,7 +282,7 @@ OS
 --
 Container host OSs require only a few tools. Making them lightweight increases scalability.
 
-* CoreOS
+* ContainerLinux (formerly CoreOS) {RedHat}
 * RHEL Atomic Host [`Differences RHEL Server to Atomic Host <https://access.redhat.com/articles/2772861>`_]
     * `SPC <https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_atomic_host/7/html-single/managing_containers/index#running_super_privileged_containers>`_ (Super Priviledged Containers)
         * Atomic Host is a lean environment missing lots of tools (no rpm/yum)
@@ -290,6 +290,8 @@ Container host OSs require only a few tools. Making them lightweight increases s
 * RancherOS
 * Photon {vmware}
 * Mesosphere DC/OS (in conjunction with Mesos and Marathon)
+* `k3os <https://k3os.io/>`_ : lightweight OS for k3s, may be useful for Continuous integration testing etc. ?
+* `Talos <https://github.com/talos-systems/talos>`_: gRPC API accessible OS for Kubernetes
 
 Security
 --------
