@@ -162,3 +162,17 @@ Accessing a Service
     * :code:`http://kubernetes_master_address/api/v1/namespaces/namespace_name/services/[https:]service_name[:port_name]/proxy`
 * :code:`kubectl port-forward service/<service_name> <local_port:target_port>`
 
+
+----
+
+Service vs Ingress
+==================
+
+.. raw:: html
+    :file: ../../graphics/k8s_ingress.svg
+
+* A service is a cluster-internal construct
+* Ingress allows defining traffic from outside into the cluster
+
+* Currently: Service = Layer 4 capability, Ingress = Layer 7 capability
+    * (Kubernetes docs states plans to introduce L7 capabilities to Services)
