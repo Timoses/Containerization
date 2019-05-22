@@ -127,6 +127,8 @@ The Service IP can be discovered via
 * DNS
      * <service-name>.<namespace>.svc.cluster.local
 
+.. note::
+   * env variables: only for pods created after service was created!
 
 ----
 
