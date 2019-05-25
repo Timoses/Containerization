@@ -480,6 +480,9 @@ Monitoring
     * `kube-state-metrics <https://github.com/kubernetes/kube-state-metrics>`_: K8s add-on agent to generate and expose cluster-level metrics
 * Cluster visualisation??
     * https://www.weave.works/oss/scope/
+    * https://github.com/benc-uk/kubeview
+    * https://github.com/kubricksllc/Kubricks
+    * Istio can also serve to visualize traffic
 * Container Monitoring:
     * cAdvisor {Google}
 
