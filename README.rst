@@ -413,8 +413,10 @@ Resources (k8s yaml files) can be organized in different ways. One option is to 
 
 * kubectl kustomize
 * Helm_
-* Kapitan
+* Kapitan (https://github.com/deepmind/kapitan)
 * ksonnet (jsonnet)
+* kr8 (https://github.com/apptio/kr8)
+* Kasane https://github.com/google/kasane
 
 
 Operator
