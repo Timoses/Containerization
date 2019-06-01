@@ -376,6 +376,7 @@ Deploying new versions of software
 Tools
 ~~~~~
 * `Flagger <https://github.com/weaveworks/flagger>`_ : Automatic Canary deployments with Istio and Prometheus
+* `Argo Roll-outs <https://github.com/argoproj/argo-rollouts>`_
 
 Management
 ----------
@@ -485,6 +486,10 @@ Monitoring
     * Istio can also serve to visualize traffic
 * Container Monitoring:
     * cAdvisor {Google}
+
+Tools
+"""""
+* `kuberhealthy <https://comcast.github.io/kuberhealthy/>`_ : Synthetic tests in K8s cluster
 
 Log Aggregation
 ~~~~~~~~~~~~~~~
