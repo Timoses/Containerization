@@ -657,6 +657,11 @@ Different proxy modes are available for routing Services (https://kubernetes.io/
 Access to *ClusterIP* is forwarded to (by default) a random Service endpoint.
 Both NodePort_ and LoadBalancer_ make use of the ClusterIP and therefore are routed once more to a random endpoint.
 
+Service and Endpoints
+'''''''''''''''''''''
+When not specifying any Pod selector with a Service, no Endpoints are generated. Endpoints can then be manually created (Docs: `1 <https://cloud.google.com/blog/products/gcp/kubernetes-best-practices-mapping-external-services>`_ `2 <https://kubernetes.io/docs/concepts/services-networking/service/#services-without-selectors>`_).
+
+
 Security
 ''''''''
 * Configure `Security Context <https://kubernetes.io/docs/tasks/configure-pod-container/security-context/>`_ for pods
