@@ -413,11 +413,15 @@ Resource Management
 Resources (k8s yaml files) can be organized in different ways. One option is to use plain yamls and use `kubectl apply -f`. However, there are many tools to include things such as templating, overlays and more:
 
 * kubectl kustomize
+    * `Ship <https://github.com/replicatedhq/ship>`_ can be used to import Helm Charts -> kustomize
 * Helm_
 * Kapitan (https://github.com/deepmind/kapitan)
 * ksonnet (jsonnet)
 * kr8 (https://github.com/apptio/kr8)
 * Kasane https://github.com/google/kasane
+
+Resources:
+* https://media.ccc.de/v/glt19-101-kubernetes-configuration-management/oembed#t=2294
 
 
 Operator
@@ -633,6 +637,8 @@ Pod
     * Pin down image versions. Eventually only down to minor updates to allow patch updates to come through automatically.
     * `Init Containers <https://kubernetes.io/docs/concepts/workloads/pods/init-containers/>`_ -
       Sequentially run (must succeed) before actual container runs
+
+* Pod priority: https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/
 
 
 `Service <k8s_Service_>`_
