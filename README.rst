@@ -440,19 +440,35 @@ Monitor, manage and control services.
 A service mesh typically consists of a *control plane* and a *data plane*. The *data plane* is usually comprised of sidecar proxies deployed next to the service or application.
 
 * Read: https://thenewstack.io/which-service-mesh-should-i-use/
-* Istio_ (control plane)
-    * Uses Envoy_ as data plane proxies
-    * Istio: Exposes SDS (secrete discovery service) API: https://preliminary.istio.io/docs/tasks/security/auth-sds/ to distribute secrets (e.g. certificates) to envoys
-    * Istio can do Auth (offloading Auth into infrastructure away from applications)
-      + Authentication (https://youtu.be/Ai8HlkI7Mm4?t=1119)
-      + Authorization (https://youtu.be/Ai8HlkI7Mm4?t=2177)
-        * RBAC or ABAC (with Open Policy Agent)
 * Linkerd_ [CNCF_ incubated]
     * *Conduit* joined with Linkerd
     * Uses custom proxy solution
     * Said to be less complicated than Istio_
 * Envoy_ (data plane) - Communication mesh. L7 proxy and communication bus, runs on each node.
 * Supergloo_ - "multi-mesh" mesh -> Manage and orchestrate multiple meshes on different clusters
+
+Istio_
+""""""
+
+.. figure:: ./graphics/istio/istio-networking.png
+
+   Source: https://blog.jayway.com/2018/10/22/understanding-istio-ingress-gateway-in-kubernetes/
+
+* Data Plane: Envoy_ Proxy injected into workloads
+    * Uses SDS (Secret Discovery Service) to distribute secrets to envoys: https://preliminary.istio.io/docs/tasks/security/auth-sds/
+* Control Plane:
+    * Mixer: Enforces access control and usage policies, collects telemetry data
+    * Pilot: Traffic Management, configures envoy proxies via Envoy API
+        * Failure recovery strategies
+        * Fault injection (for testing)
+        * See `Rule configuration <https://istio.io/docs/concepts/traffic-management/#rule-configuration>`_ for involved Istio components/resources
+    * Citadel: service-to-service and end-user authentication
+    * Galley: configuration validation, ingestion, processing and distribution
+
+Capabilities
+''''''''''''
+
+* `Authentication <https://youtu.be/Ai8HlkI7Mm4?t=1119>`_ and `Authorization <https://youtu.be/Ai8HlkI7Mm4?t=2177>`_ (w/ OpenPolicyAgent?)
 
 API Gateway
 ~~~~~~~~~~~
