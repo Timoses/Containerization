@@ -439,6 +439,8 @@ Monitor, manage and control services.
 
 A service mesh typically consists of a *control plane* and a *data plane*. The *data plane* is usually comprised of sidecar proxies deployed next to the service or application.
 
+**SMI** (Service Mesh Interface) {Microsoft}: Introduces common interface to use many Service Mesh providers. It works like Ingress, where a Resource is consumed by the SM provider (adapter) or e.g. translated into provider-specific resources by an operator running in K8s.
+
 * Read: https://thenewstack.io/which-service-mesh-should-i-use/
 * Linkerd_ [CNCF_ incubated]
     * *Conduit* joined with Linkerd
