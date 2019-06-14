@@ -474,6 +474,8 @@ Capabilities
 
 API Gateway
 ~~~~~~~~~~~
+North/South Traffic
+
 * Gloo_ - Serverless oriented API gateway
 * Ambassador_
 * Istio_ also has funtionalities to control ingress traffic
@@ -538,6 +540,7 @@ Instead of building source code on a developer's local machine, the source code 
 
 * `Jenkins X <jenkinsx_>`_ utilizes this approach
     * ksync_ - synchronizes source code to a k8s pod
+* https://www.telepresence.io
 
 Local
 ~~~~~
@@ -845,6 +848,10 @@ Storage
 
 * CSI [`Spec <CSI Spec_>`_] [`Doc <CSI Doc_>`_] - Container Storage Interface
 
+Resources
+"""""""""
+* https://www.youtube.com/watch?v=169w6QlWhmo
+
 Security
 ~~~~~~~~
 * CIS Benchmark Kubernetes https://downloads.cisecurity.org
@@ -892,6 +899,8 @@ Authorization
 Tools
 ~~~~~
 * crictl (https://kubernetes.io/docs/tasks/debug-application-cluster/crictl/): Can inspect CRI-compliant container runtimes. E.g. useful for debugging and also when using various container runtimes on different nodes/clusters.
+* https://github.com/appscode/kubed : Disaster recovery? Backup?
+* https://github.com/heptio/velero : Backup and restore kubernetes cluster
 
 
 
@@ -911,6 +920,9 @@ Tools
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * Allows domain access routed to multiple backends in different clusters
 * Still an immature feature!
+
+Tools:
+* razee.io {IBM}
 
 Extending products
 ~~~~~~~~~~~~~~~~~~
