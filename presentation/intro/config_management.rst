@@ -378,4 +378,3 @@ Deploying resources - Argo CD
 * can deploy to multiple clusters
 * OIDC & RBAC
 
-https://kubernetes-dev-1:30179
