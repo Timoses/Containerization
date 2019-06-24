@@ -487,18 +487,9 @@ Observability
   (Otherwise: use *"sidecar"* container)
 * GKE uses `fluentd <https://github.com/GoogleCloudPlatform/k8s-stackdriver/tree/master/fluentd-gcp-image>`_ (vs Logstash?)
 
-Monitoring
-~~~~~~~~~~
+Metrics
+~~~~~~~
 * Prometheus_ (Data Aggregation of *Metrics*)
-    * Setup1
-        * InfluxDB (storage backend)
-        * Grafana (Visualization)
-    * Setup2
-        * ELK (E:storage, L: logging, K:visualization)
-    * Icinga: Query data from Prometheus?...
-    * Icinga vs Prometheus:
-        * Icinga = server/software health via scripts, ...
-        * Prometheus = time series of metrics fetched via http
     * JMX (Java Management Extensions): Exporter exists
 * `Veneur <https://github.com/stripe/veneur>`_ & `Veneur-Prometheus <https://github.com/stripe/veneur/tree/master/cmd/veneur-prometheus>`_ & `StatsD <https://github.com/etsy/statsd>`_
 * `Google Stackdriver <https://cloud.google.com/monitoring/kubernetes-engine/>`_
@@ -515,8 +506,14 @@ Tools
 """""
 * `kuberhealthy <https://comcast.github.io/kuberhealthy/>`_ : Synthetic tests in K8s cluster
 
-Log Aggregation
-~~~~~~~~~~~~~~~
+Traces
+~~~~~~
+
+* Jaeger
+* Opentelemetry (Merge of former OpenTracing and OpenCensus)
+
+Logging
+~~~~~~~
 * Fluentd_
     * Also popular as a replacement for Logstash in ELK stack -> EFK
 
