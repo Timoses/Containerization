@@ -189,6 +189,7 @@ Tools
     * `inspect`\ ing image (info and layers) without downloading it
     * `copy` image from one registry to another
     * supports various registries (Docker, OCI, Atomic, ...)
+* `reg <https://github.com/genuinetools/reg`_
 
 Hosts & registry software
 """""""""""""""""""""""""
@@ -206,6 +207,9 @@ Hosts & registry software
         * authorization service and frontend for Docker Registry
     * `GitLab container registry <https://docs.gitlab.com/ee/user/project/container_registry.html>`_
         * Docker Registry integrated with GitLab
+    * `Artifactory <https://jfrog.com/artifactory>`_ {JFrog} (commercial)
+        * Artifcat repository for Images, RPMs, Maven, RubyGemns, .....
+    * `Sonatype Nexus <https://www.sonatype.com>`_ (commercial and OSS)
 * Hosted
     * `Docker Hub <https://hub.docker.com/>`_ {Docker} - Public
     * `Red Hat Container Catalog <https://access.redhat.com/containers/>`_ - Public, "enterprise-grade", "secure, certified, and up-to-date"
