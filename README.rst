@@ -437,6 +437,34 @@ Operator
   * https://github.com/operator-framework/awesome-operators
   * https://kubedex.com/operators/
 
+Connectivity
+------------
+
+Container Networking
+~~~~~~~~~~~~~~~~~~~~
+
+* kube-router_ {DigitalOcean?}
+   * BGP, ipvs, ... ???
+   * is it still an overlay?...
+* flannel_
+    * L2 VXLan
+* Weave
+* Open vSwitch (used by OpenShift)
+    * "more mature but also complicated way to build an overlay network. This is endorsed by several of the “Big Shops” for networking." [[Source](https://kubernetes.io/docs/concepts/cluster-administration/networking/#openvswitch)]
+* Multus: Allows connecting multiple network interfaces to a Pod https://github.com/intel/multus-cni
+
+Calico_
+"""""""
++ L3 Networking via iptables
++ routes are synced between hosts via BGP
++ calicoctl: allows you to achieve advanced policies and networking from a simple, command-line interface.
++ orchestrator plugins: provide close integration and synchronization with a variety of popular orchestrators.
++ key/value store: holds Calico’s policy and network configuration state.
++ calico/node: runs on each host, reads relevant policy and network configuration information from the key/value store, and implements it in the Linux kernel.
++ Dikastes/Envoy: optional Kubernetes sidecars that secure workload-to-workload communications with mutual TLS authentication and enforce application layer policy.
+
+Policies can be applied to endpoints (host and workload).
+
 Service Mesh
 ~~~~~~~~~~~~
 Monitor, manage and control services.
@@ -758,14 +786,11 @@ Networking
 Definitions
 """""""""""
 
-iptables
-   linux kernel programm to manipulate network data packages
 CNI
    Container Network Interface - Interface for easy addition and removal of pods to a pod network (used by kubelet) [`SPEC <https://github.com/containernetworking/cni/blob/master/SPEC.md#overview-1>`_]
 
 IP Address allocation
 """""""""""""""""""""
-Private IP Addresses: https://tools.ietf.org/html/rfc1918
 https://cloud.google.com/kubernetes-engine/docs/how-to/flexible-pod-cidr
 
 Pod network
@@ -777,7 +802,7 @@ via Linux Bridge
 Pod to Pod on another Node
 ''''''''''''''''''''''''''
 * Manual router configuration: Update to route Pod IPs to correct Node
-* Overlay network: Create a virtual network utilizing tools like iptables
+* Virtual network: Create a virtual network utilizing tools like iptables
 
 IPv6
 """"
@@ -788,25 +813,9 @@ CNI Plugins
 """""""""""
 CNI plugins offer various methods of establishing connectivity between pods.
 
-Benchmark: https://itnext.io/benchmark-results-of-kubernetes-network-plugins-cni-over-10gbit-s-network-36475925a560
+See `Container Networking`_.
 
-* Calico_
-   - L3 Networking via iptables
-   - routes are synced between hosts via BGP
-   - calicoctl: allows you to achieve advanced policies and networking from a simple, command-line interface.
-   - orchestrator plugins: provide close integration and synchronization with a variety of popular orchestrators.
-   - key/value store: holds Calico’s policy and network configuration state.
-   - calico/node: runs on each host, reads relevant policy and network configuration information from the key/value store, and implements it in the Linux kernel.
-   - Dikastes/Envoy: optional Kubernetes sidecars that secure workload-to-workload communications with mutual TLS authentication and enforce application layer policy.
-* kube-router_ {DigitalOcean?}
-   * BGP, ipvs, ... ???
-   * is it still an overlay?...
-* flannel_
-    * L2 VXLan
-* Weave
-* Open vSwitch (used by OpenShift)
-    * "more mature but also complicated way to build an overlay network. This is endorsed by several of the “Big Shops” for networking." [[Source](https://kubernetes.io/docs/concepts/cluster-administration/networking/#openvswitch)]
-* Multus: Allows connecting multiple network interfaces to a Pod https://github.com/intel/multus-cni
+Benchmark: https://itnext.io/benchmark-results-of-kubernetes-network-plugins-cni-over-10gbit-s-network-36475925a560
 
 
 DNS
