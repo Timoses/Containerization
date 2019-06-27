@@ -828,9 +828,8 @@ Kubernetes control plane sets up a DNS server. Every pod created will use this f
 
 Tools
 '''''
-* CoreDNS_ {CNCF_} - with k8s v1.13 default DNS service (replacing kube-dns)
+* CoreDNS_ {CNCF_} - with k8s v1.13 default DNS service (replacing kube-dns) - previously `SkyDNS <https://github.com/skynetservices/skydns>`_
 * ExternalDNS_ -
-* `SkyDNS <https://github.com/skynetservices/skydns>`_
 
 
 Security
