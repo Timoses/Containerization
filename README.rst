@@ -24,6 +24,10 @@ Blogs:
 Podcasts:
 * https://kubernetespodcast.com/
 
+Other sources:
+* https://ramitsurana.github.io/awesome-kubernetes/
+* https://jimmysong.io/awesome-cloud-native/
+
 Organizations
 =============
 .. _Definition CNCF: https://github.com/cncf/toc/blob/master/DEFINITION.md
@@ -381,6 +385,8 @@ Tools
 ~~~~~
 * `Flagger <https://github.com/weaveworks/flagger>`_ : Automatic Canary deployments with Istio and Prometheus
 * `Argo Roll-outs <https://github.com/argoproj/argo-rollouts>`_
+* `Kanary <https://github.com/etiennecoutaud/kanary>`_
+* `Shipper <https://github.com/bookingcom/shipper>`_ {Booking.com}
 
 Management
 ----------
@@ -537,6 +543,7 @@ Metrics
 Tools
 """""
 * `kuberhealthy <https://comcast.github.io/kuberhealthy/>`_ : Synthetic tests in K8s cluster
+* `ebpf-exporter <https://github.com/cloudflare/ebpf_exporter>`_ Prometheus exporter for custom eBPF metrics
 
 Traces
 ~~~~~~
@@ -970,6 +977,14 @@ Experience Reports
 
 ToDo:
 * `Best practices Kubernetes (Google) <https://www.google.com/search?q=site%3Acloudplatform.googleblog.com%20%22kubernetes%20best%20practices%22>`_
+
+
+Development
+~~~~~~~~~~~
+Kubernetes Controllers & CRDs
+"""""""""""""""""""""""""""""
+* Operator SDK
+* kubebuilder https://github.com/kubernetes-sigs/kubebuilder
 
 
 ProjectAtomic
