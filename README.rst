@@ -550,6 +550,7 @@ Traces
 
 * Jaeger
 * Opentelemetry (Merge of former OpenTracing and OpenCensus)
+* `kubectl trace <https://github.com/iovisor/kubectl-trace>`_ (e)BPF traces!
 
 Logging
 ~~~~~~~
