@@ -51,6 +51,8 @@ OCI
 Containerization
 ================
 .. _container terminology red hat: https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction/#h.def2e0bag2rr
+.. _demystifying containers part1: https://www.suse.com/c/demystifying-containers-part-i-kernel-space/
+.. _demystifying containers part2: https://www.suse.com/c/demystifying-containers-part-ii-container-runtimes/
 .. _man cgroups: http://man7.org/linux/man-pages/man7/cgroups.7.html
 .. _man namespaces: http://man7.org/linux/man-pages/man7/namespaces.7.html
 .. _read namespaces NET: https://blog.yadutaf.fr/2014/01/19/introduction-to-linux-namespaces-part-5-net/
@@ -63,7 +65,7 @@ Containerization
 .. _wikipedia cgroups: https://en.wikipedia.org/wiki/Cgroups
 .. _wikipedia linux namespaces: https://en.wikipedia.org/wiki/Linux_namespaces
 
-Reads: `Container Terminology {Red Hat} <container terminology red hat_>`_
+Reads: `Container Terminology {Red Hat} <container terminology red hat_>`_, Demystifying Containers - `Part I <demystifying containers part1_>`_, `Part II <demystifying containers part2_>`_
 
 * Containerization is `OS-level virtualization <wikipedia OS-level virtualization_>`_
     * vs `Hardware virtualization <wikipedia Hardware virtualization_>`_: Using a hypervisor isolated virtual machines are created. Multiple guest OSs, each running their own kernel, can be installed on these isolated machines. Containers on the other hand are created on the already running OS and utilize kernel features for isolation.
