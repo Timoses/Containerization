@@ -873,6 +873,7 @@ Resources
 
 Security
 ~~~~~~~~
+* https://kubernetes-security.info/
 * CIS Benchmark Kubernetes https://downloads.cisecurity.org
     * Advice on how to configure and run K8s
 * https://thenewstack.io/4-major-tenets-kubernetes-security/
