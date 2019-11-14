@@ -531,6 +531,7 @@ Metrics
 ~~~~~~~
 * Prometheus_ (Data Aggregation of *Metrics*)
     * JMX (Java Management Extensions): Exporter exists
+* `Cortex <https://grafana.com/oss/cortex/>`_ : Expands Prometheus for resilience and long term capacity storage and performance analysis
 * `Veneur <https://github.com/stripe/veneur>`_ & `Veneur-Prometheus <https://github.com/stripe/veneur/tree/master/cmd/veneur-prometheus>`_ & `StatsD <https://github.com/etsy/statsd>`_
 * `Google Stackdriver <https://cloud.google.com/monitoring/kubernetes-engine/>`_
     * `kube-state-metrics <https://github.com/kubernetes/kube-state-metrics>`_: K8s add-on agent to generate and expose cluster-level metrics
