@@ -488,6 +488,7 @@ A service mesh typically consists of a *control plane* and a *data plane*. The *
     * Said to be less complicated than Istio_
 * Envoy_ (data plane) - Communication mesh. L7 proxy and communication bus, runs on each node.
 * Supergloo_ - "multi-mesh" mesh -> Manage and orchestrate multiple meshes on different clusters
+* `Meshery <https://github.com/layer5io/meshery>`_ - Multi-Mesh management platform -> SMI
 
 Istio_
 """"""
