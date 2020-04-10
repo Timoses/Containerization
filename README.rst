@@ -869,6 +869,11 @@ Storage
 
 * CSI [`Spec <CSI Spec_>`_] [`Doc <CSI Doc_>`_] - Container Storage Interface
 
+Backup
+""""""
+
+* `Velero <https://velero.io/>`_
+
 Resources
 """""""""
 * https://www.youtube.com/watch?v=169w6QlWhmo
