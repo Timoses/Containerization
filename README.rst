@@ -543,6 +543,8 @@ Metrics
     * Istio can also serve to visualize traffic
 * Container Monitoring:
     * cAdvisor {Google}
+* Cluster Monitoring:
+    * `kube-state-metrics <https://github.com/kubernetes/kube-state-metrics>`_
 
 Tools
 """""
